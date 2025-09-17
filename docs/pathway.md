@@ -1,10 +1,10 @@
 ---
-title: Self-Taught Degree
+title: Self-Taught Pathway
 description: The self-taught curriculum
 hide:
   - navigation
 ---
-# The Self-Taught Degree
+# The Self-Taught Pathway
 
 <figure markdown="span">
   ![A man hiking through the welsh countryside](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/misc/the-journey.webp){ width="600" }
@@ -52,13 +52,16 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] As a Man Thinketh
 --8<-- "includes/icons/icon-book.md"
 
+- [ ] The 7 Habits Of Highly Effective People
+--8<-- "includes/icons/icon-book.md"
+
 - [ ] Maximum Achievement: Strategies and Skills That Will Unlock Your Hidden Powers to Succeed
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] How to Fail at Almost Everything and Still Win Big
+- [ ] The Pathless Path: Imagining a New Story For Work and Life
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] The Pathless Path: Imagining a New Story For Work and Life
+- [ ] Thinking, Fast and Slow
 --8<-- "includes/icons/icon-book.md"
 
 - [ ] How to Win Friends and Influence People
@@ -75,6 +78,9 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] The War of Art
 --8<-- "includes/icons/icon-book.md"
 
+- [ ] How to Fail at Almost Everything and Still Win Big
+--8<-- "includes/icons/icon-book.md"
+
 - [ ] Bounce: The of Myth of Talent and the Power of Practice
 --8<-- "includes/icons/icon-book.md"
 
@@ -86,13 +92,7 @@ _Every resource in this stage is independent and can be completed at any time._
 - [x] Scrum: The Art of Doing Twice the Work in Half the Time
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] Clean Agile: Back to Basics
---8<-- "includes/icons/icon-book.md"
-
-- [ ] Extreme Programming Explained: Embrace Change
---8<-- "includes/icons/icon-book.md"
-
-- [ ] Wild West to Agile: Adventures in Software Development Evolution and Revolution
+- [ ] The Art of Agile Development
 --8<-- "includes/icons/icon-book.md"
 
 - [ ] Accelerate: The Science of Lean Software and Devops
@@ -118,6 +118,9 @@ _Every resource in this stage is independent and can be completed at any time._
 --8<-- "includes/icons/icon-book.md"
 
 - [ ] Money: A User’s Guide
+--8<-- "includes/icons/icon-book.md"
+
+- [ ] The Psychology of Money: Timeless lessons on wealth, greed, and happiness
 --8<-- "includes/icons/icon-book.md"
 
 
@@ -167,6 +170,9 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] The Mythical Man-Month: Essays on Software Engineering
 --8<-- "includes/icons/icon-book.md"
 
+- [ ] How to Improve your Maths Skills
+--8<-- "includes/icons/icon-book.md"
+
 
 ## Stage 1: Primarily Applied Skills
 ### Introduction to Computing
@@ -184,16 +190,13 @@ _Every resource in this stage is independent and can be completed at any time._
 
 
 ### Programming
-- [x] Learn Python Programming: An In-Depth Introduction to the Fundamentals of Python
+- [ ] Automate the Boring Stuff with Python
 --8<-- "includes/icons/icon-book.md"
 
 - [ ] Practices of the Python Pro
 --8<-- "includes/icons/icon-book.md"
 
 - [ ] Publishing Python Packages
---8<-- "includes/icons/icon-book.md"
-
-- [ ] Automate the Boring Stuff with Python
 --8<-- "includes/icons/icon-book.md"
 
 - [ ] Fluent Python
@@ -249,17 +252,6 @@ _Every resource in this stage is independent and can be completed at any time._
 
 
 ## Stage 2
-### Mathematics
-- [ ] Discovering Mathematics (MU123)
---8<-- "includes/icons/icon-ou.md"
-
-- [ ] Essential Mathematics 1 (MST124)
---8<-- "includes/icons/icon-ou.md"
-
-- [ ] Introductory Discrete Mathematics
---8<-- "includes/icons/icon-book.md"
-
-
 ### Algorithms & Data Structures
 - [ ] A Common-Sense Guide to Data Structures and Algorithms in Python, Volume 1
 --8<-- "includes/icons/icon-book.md"
@@ -285,18 +277,10 @@ _Every resource in this stage is independent and can be completed at any time._
 --8<-- "includes/icons/icon-book.md"
 
 
-### Object-Oriented Programming & Design Patterns
-- [ ] The Object-Oriented Thought Process
---8<-- "includes/icons/icon-book.md"
-
+### Further Software Skills
 - [ ] Head First Design Patterns
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] Patterns of Enterprise Application Architecture
---8<-- "includes/icons/icon-book.md"
-
-
-### Wrangling Existing Code
 - [ ] Refactoring: Improving the Design of Existing Code
 --8<-- "includes/icons/icon-book.md"
 
@@ -304,64 +288,16 @@ _Every resource in this stage is independent and can be completed at any time._
 --8<-- "includes/icons/icon-book.md"
 
 
-### Other OU Modules
-- [ ] Software engineering (TM354)
---8<-- "includes/icons/icon-ou.md"
-
-- [ ] Communications technology (TM355)
---8<-- "includes/icons/icon-ou.md"
-
-
-## Stage 3: Advanced Topics
-
-### Computer Programs
-- [ ] Structure and Interpretation of Computer Programs: JavaScript Edition
---8<-- "includes/icons/icon-book.md"
-
-
-### Computer Architecture
-- [ ] The Elements of Computing Systems: Building a Modern Computer from First Principles
---8<-- "includes/icons/icon-book.md"
-
-- [ ] Companion Coursera Course: Building a Modern Computer from First Principles
---8<-- "includes/icons/icon-online.md"
-
-
-### Operating Systems
-- [ ] Operating Systems: Three Easy Pieces
---8<-- "includes/icons/icon-book.md"
-
-- [ ] How Linux Works: What Every Superuser Should Know
---8<-- "includes/icons/icon-book.md"
-
-
-### Computer Networking
-- [ ] Lectures (Stanford CS144): Introduction to Computer Networking
+### Distributed Systems
+- [ ] Lectures (MIT 6.824): Distributed Systems
 --8<-- "includes/icons/icon-youtube.md"
-
-- [ ] Computer Networking: A Top-Down Approach
---8<-- "includes/icons/icon-book.md"
 
 
 ### Databases
 - [ ] Lectures (CMU) Intro to Database Systems
 --8<-- "includes/icons/icon-youtube.md"
 
-- [ ] Architecture of a Database System
---8<-- "includes/icons/icon-online.md"
-
-- [ ] Readings in Database Systems
---8<-- "includes/icons/icon-online.md"
-
-- [ ] Data and Reality: A Timeless Perspective on Perceiving and Managing Information in Our Imprecise World
---8<-- "includes/icons/icon-book.md"
-
 
 ### Languages and Compilers
 - [ ] Crafting Interpreters
 --8<-- "includes/icons/icon-book.md"
-
-
-### Distributed Systems
-- [ ] Lectures (MIT 6.824): Distributed Systems
---8<-- "includes/icons/icon-youtube.md"

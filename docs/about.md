@@ -84,7 +84,7 @@ Specialised in Software Development since 2018. Dedicated to the craftsmanship o
 ### Data-Edge Analytics (Contractor)
 *Jan 2024 :material-arrow-right: Present*
 
-- Main Tech Stack: Python, Pydantic, Node.js, React, Docker, Gitlab, MKDocs
+- Main Tech Stack: Python, Pydantic, Elastic, S3, Docker, Gitlab, MKDocs
 - Work with data scientists :test_tube: to integrate their code into a larger software eco-system
 - Standardise the containerisation and deployment of data science projects within a monorepo
 - Create, maintain and deploy python packages, with hosted documentation, using CI/CD Gitlab pipelines

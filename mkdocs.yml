@@ -152,7 +152,7 @@ hooks:
 # Site Navigation
 nav:
   - Home: index.md
-  - Self-Taught Degree: degree.md
+  - Self-Taught Pathway: pathway.md
   - Blog:
     - blog/index.md
   - about.md
