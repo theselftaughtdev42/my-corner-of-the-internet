@@ -41,9 +41,9 @@ Then I began to diverge from the typical university pathway. I began to include 
 
 But there are so many non-technical skills that compliment a career in software: leadership, finance and business to name a few. So I created a fourth stage to capture these additional skills. This stage is _unstructured_ and designed to be studied as and when I desire. If I need a break from data structures, I'll study business or leadership. Why not?
 
-I published the whole curriculum on my website and called it [The Self-Taught Degree](../../../index.md). Each "module" has a tick box next to it so I can track my progress. I imagine it'll take me years! 
+I published the whole curriculum on my website and called it [The Self-Taught Pathway](../../../index.md). Each "module" has a tick box next to it so I can track my progress. I imagine it'll take me years! 
 
-Knowledge for its own sake is futile. It needs a higher purpose. Yes, it will make me a more competent developer, but there's also an opportunity here. Considering my "Self-Taught Degree" will lack the status of a formal qualification, I need to prove my competence another way.
+Knowledge for its own sake is futile. It needs a higher purpose. Yes, it will make me a more competent developer, but there's also an opportunity here. Considering my "Self-Taught Pathway" will lack the status of a formal qualification, I need to prove my competence another way.
 
 So as I progress through each module, I shall do what any good student does: I'll take notes, converse with "Professor GPT", summarise content and rewrite it in my own words to confirm understanding. And then I will publish it all online. My website has been designed to become a hub of knowledge as I go through this process. Being a resource for both myself and others on their own self-taught journey.
 
