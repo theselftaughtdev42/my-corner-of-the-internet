@@ -9,7 +9,7 @@ hide:
 </div>
 
 <figure markdown>
-  ![a photo of Tim MacKay](https://github.com/theselftaughtdev42.png){ width="200" }
+  ![a photo of Tim MacKay](https://github.com/theselftaughtdev42.png){ width="200" .profile-pic }
 </figure>
 
 

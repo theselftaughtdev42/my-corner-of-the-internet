@@ -100,3 +100,7 @@ div.centered {
 .external-link-icon {
   vertical-align: middle !important;
 }
+
+.profile-pic {
+  border-radius: 50%;
+}
