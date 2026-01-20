@@ -23,7 +23,7 @@ hide:
 <div class="centered" markdown>
 ### Welcome! Thank you for visiting :heart_eyes:
 
-### I'm [Tim MacKay](./about.md), carving myelf a path in software development. No traditional degree—just a passion for coding, computer science and self-improvement.
+### I'm [Tim MacKay](./about.md), carving myself a path in software development. No traditional degree—just a passion for coding, computer science and self-improvement.
 
 ### As I study, I publish what I learn. These writings help me learn and I hope they can help you too!
 </div>
