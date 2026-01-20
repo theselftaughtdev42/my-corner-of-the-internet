@@ -80,9 +80,6 @@ extra:
     - icon: simple/devdotto
       link: https://dev.to/theselftaughtdev
       name: Tim's Dev.to Page
-    - icon: simple/dailydotdev
-      link: https://app.daily.dev/theselftaughtdev
-      name: Tim's Daily.dev
   
   analytics:
     provider: google
