@@ -143,6 +143,9 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] Rich Dad Poor Dad
 --8<-- "includes/icons/icon-book.md"
 
+- [ ] Never Split The Difference
+--8<-- "includes/icons/icon-book.md"
+
 
 ### Misc
 - [ ] Lectures (MIT) The Missing Semester
@@ -150,15 +153,6 @@ _Every resource in this stage is independent and can be completed at any time._
 
 - [ ] Soft Skills: The Software Developer's Life Manual
 --8<-- "includes/icons/icon-book.md"
-
-- [ ] Pro Git
---8<-- "includes/icons/icon-book.md"
-
-- [ ] Microsoft Azure AZ-900
---8<-- "includes/icons/icon-youtube.md"
-
-- [ ] Microsoft Azure AI-900
---8<-- "includes/icons/icon-youtube.md"
 
 - [ ] Touch Typing
 
@@ -176,9 +170,6 @@ _Every resource in this stage is independent and can be completed at any time._
 
 ## Stage 1: Primarily Applied Skills
 ### Introduction to Computing
-- [ ] Introduction to computing and information technology 1 (TM111)
---8<-- "includes/icons/icon-ou.md"
-
 - [ ] CS50's Introduction to Computer Science
 --8<-- "includes/icons/icon-online.md"
 
@@ -207,9 +198,6 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] Docker Deep Dive
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] Continuous Delivery
---8<-- "includes/icons/icon-book.md"
-
 - [ ] The Phoenix Project
 --8<-- "includes/icons/icon-book.md"
 
@@ -230,13 +218,14 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] Modern Software Engineering: Doing What Works to Build Better Software Faster
 --8<-- "includes/icons/icon-book.md"
 
+- [ ] Designing Data-Intensive Applications
+--8<-- "includes/icons/icon-book.md"
+
+#### Optional (Classics)
 - [ ] Clean Code: A Handbook of Agile Software Craftsmanship
 --8<-- "includes/icons/icon-book.md"
 
 - [ ] Code Complete: A Practical Handbook of Software Construction
---8<-- "includes/icons/icon-book.md"
-
-- [ ] Designing Data-Intensive Applications
 --8<-- "includes/icons/icon-book.md"
 
 
@@ -247,13 +236,13 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] Unit Testing Principles, Practices, and Patterns
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] Test-Driven Development: By Example
---8<-- "includes/icons/icon-book.md"
-
 
 ## Stage 2
 ### Algorithms & Data Structures
 - [ ] A Common-Sense Guide to Data Structures and Algorithms in Python, Volume 1
+--8<-- "includes/icons/icon-book.md"
+
+- [ ] A Common-Sense Guide to Data Structures and Algorithms in Python, Volume 2
 --8<-- "includes/icons/icon-book.md"
 
 - [ ] Problem Solving with Algorithms and Data Structures Using Python 2nd Edition
@@ -296,8 +285,3 @@ _Every resource in this stage is independent and can be completed at any time._
 ### Databases
 - [ ] Lectures (CMU) Intro to Database Systems
 --8<-- "includes/icons/icon-youtube.md"
-
-
-### Languages and Compilers
-- [ ] Crafting Interpreters
---8<-- "includes/icons/icon-book.md"
