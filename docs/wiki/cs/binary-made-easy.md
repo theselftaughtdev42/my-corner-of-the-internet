@@ -1,22 +1,15 @@
 ---
-draft: false
-authors:
-  - tim
 date:
   created: 2025-01-13
-categories:
-  - Computer Science Fundamentals
 tags:
   - computer-science
-  - fundamentals
+  - cs
 description: Discover how binary numbers mirror the familiar decimal system and see how counting in twos can be surprisingly simple.
 title: Binary Made Easy
-series: computer-science-intro
+series: Intro to Computer Science
 ---
 
 Binary numbers might seem mystifying at first glance, but this article breaks it down into familiar logic you use every day. By explaining the parallels between counting in tens and counting in twos, you'll be guided to understand how ones and zeros can represent anything!
-
-<!-- more -->
 
 !!! warning "Joke Alert!"
     
@@ -96,5 +89,3 @@ Lastly, add them up:
 $32 + 0 + 8 + 4 + 0 + 1 = 45$
 
 Which means `101101` equals 45. Much easier once you know how it works, right?
-
---8<-- "includes/blog_series/computer_science_intro.md"

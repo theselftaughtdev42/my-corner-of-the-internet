@@ -1,23 +1,16 @@
 ---
-authors:
-  - tim
 date:
   created: 2024-06-11
-categories:
-  - Learning
 tags:
   - education
   - study
   - memory
-  - personal-development
 description: Transform abstract facts into unforgettable memories using clever tricks
 title: How To Remember Anything
 series: How We Learn
 ---
 
 Unless you have a particularly gifted memory, most people would say their memory is lacking at best. But a lot of what modern day people are trying to remember is surprisingly abstract. A person's name is just a sound that we associate with them. You can't see or feel a date: it's a globally agreed upon framework to structure time that tries its best to fit in with the earth's orbit around the sun. Our brains struggle with abstract.
-
-<!-- more -->
 
 We don't struggle quite so much with visual and spatial memory. You can see a face you haven't seen in years and know that you've met that person before — remembering their name is another question. After a couple of commutes to a new place of work you stop  consciously thinking about how to get there. You can probably remember the layout of a houses you grew up in, or a friends house you used to visit. Can you still remember certain routes from one classroom to another in a school you attended?
 
@@ -67,5 +60,4 @@ With the advent of LLMs such as ChatGPT, we can get the best of both worlds: rec
 Each of the above techniques will be worth exploring and trying out. But the real benefit will come as you learn to combine them. For example: handwriting your notes, using those notes to come up with memorable metaphors, sentences, songs etc and then finding creative ways to store those "artifacts" in a memory palace! To begin with, a memorable sentence may start off as a collection of [chunks](./chunk-it-up.md), but once the sentence is remembered then the whole thing becomes a single chunk and easily brought into your working memory via a memory palace.
 
 
---8<-- "includes/blog_series/how_we_learn.md"
 --8<-- "includes/books/a-mind-for-numbers.md"

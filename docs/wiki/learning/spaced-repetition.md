@@ -1,16 +1,11 @@
 ---
-authors:
-  - tim
 date:
   created: 2024-06-04
   updated: 2024-09-17
-categories:
-  - Learning
 tags:
   - education
   - study
   - memory
-  - personal-development
 description: Master the art of memory by using Spaced Repetition—a technique that turns fleeting knowledge into lasting understanding
 title: Spaced Repetition
 series: How We Learn
@@ -19,8 +14,6 @@ series: How We Learn
 Spaced Repetition is the systematic increasing of time between recalling a piece of information. Starting regularly and eventually waiting weeks or even months as the information becomes solidified in long-term memory.
 
 Before we get into the "how" of Spaced Repetition, let's talk about what problem it solves.
-
-<!-- more -->
 
 ## The Forgetting Curve :confused:
 When we learn a new piece of information, our brain can retain it for a small amount of time before it is forgotten. But each time we recall the information, it takes longer to forget. We have strengthened the neural pathway.
@@ -69,5 +62,4 @@ Make a habit of using Anki daily so that you benefit from the algorithm's timing
 The internet is full of Anki-related resources so I won't go over the specifics of how to use the software. A quick Google search will lead you to countless blogs and the same goes for videos on YouTube. But be warned: Anki can be insanely simple if you want it to be, or insanely complicated. Keep it simple!
 
 
---8<-- "includes/blog_series/how_we_learn.md"
 --8<-- "includes/books/a-mind-for-numbers.md"

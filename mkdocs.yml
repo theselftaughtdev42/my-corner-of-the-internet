@@ -52,6 +52,7 @@ theme:
     - content.tooltips
     - navigation.tabs
     - navigation.indexes
+    - navigation.expand
     # enable XHR loading
     - navigation.instant
     - navigation.instant.progress
@@ -150,6 +151,16 @@ hooks:
 nav:
   - Home: index.md
   - Self-Taught Pathway: pathway.md
+  - Wiki:
+    - wiki/index.md
+    - How To Learn:
+      - wiki/learning/the-two-learning-modes.md
+      - wiki/learning/chunk-it-up.md
+      - wiki/learning/spaced-repetition.md
+      - wiki/learning/how-to-remember-anything.md
+    - Computer Science:
+      - wiki/cs/binary-made-easy.md
+      - wiki/cs/how-computers-speak-in-binary.md
   - Blog:
     - blog/index.md
   - about.md
