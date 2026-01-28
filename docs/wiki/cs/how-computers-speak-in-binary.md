@@ -1,22 +1,15 @@
 ---
-draft: false
-authors:
-  - tim
 date:
   created: 2025-01-21
-categories:
-  - Computer Science Fundamentals
 tags:
   - computer-science
-  - fundamentals
+  - cs
 description: Unravel how computers transform binary code into data, and learn to decode your internet speed.
 title: Discover How Computers Speak in Binary
-series: computer-science-intro
+series: Intro to Computer Science
 ---
 
 Ever wondered how your computer speaks its own language? This article guides you through the basics of bits and bytes, uncovering the mechanisms computers use to store and convey data. We'll see how combinations of bits can represent anything from a single number to a video file and I'll even show you how to understand your internet speed!
-
-<!-- more -->
 
 ## Bits and Bytes
 ### The Smallest Bit
@@ -93,6 +86,3 @@ terabits per second = a trillion = `Tbps` = 10<sup>12</sup> = `1,000 Gbps`
 !!! question "What's up with the little k in kbps?"
 
     Note the rather confusing inconsistency with capitalisation: the lowercase 'k' represents 1,000 in decimal measurements (used to measure data transmission), unlike data storage which often uses a capital 'K' to denote binary measurement :face_with_spiral_eyes: We are not so consistent with mega, giga etc.
-
-
---8<-- "includes/blog_series/computer_science_intro.md"

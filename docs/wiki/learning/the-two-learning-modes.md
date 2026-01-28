@@ -1,14 +1,9 @@
 ---
-authors:
-  - tim
 date:
   created: 2024-05-21
-categories:
-  - Learning
 tags:
   - education
   - study
-  - personal-development
 description: Unlock faster, deeper learning by tapping into your brain's two powerful modes
 title: The Two Learning Modes
 series: How We Learn
@@ -16,14 +11,15 @@ series: How We Learn
 
 Your brain has two primary "modes" and most people don't realise just how important it is to use both of these modes together when learning something new.
 
-<!-- more -->
-
 ## Focused
 This mode is pretty self-explanatory: when you are intently studying (reading, listening, watching, doing) then your brain has engaged its _Focused_ mode. You have a narrow focus and you are detail-oriented. This kind of tunnel vision is essential for understanding new information. Your brain acknowledges and grapples with it.
 
+<figure markdown="span">
+  ![A woman reading intently in a library.](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/learning/lady-reading.webp){ width="600", loading=lazy, main-image }
+</figure>
+
 !!! info "Embrace Confusion"
     New information — especially in a new area of interest — will bring a natural level of confusion with it. Your brain doesn't have any pre-existing neural pathways to guide your thought process. _Focused_ mode on its own can only get you so far. This is where Diffuse mode comes in.
-
 
 ## Diffuse
 _Diffuse_ mode is the other side of the coin. The good news is that we often use it without realising, which is why doing it consciously is a game changer.
@@ -38,14 +34,9 @@ Don't expect the "Aha!" moment all the time. Most of the time you'll find that u
 ## Combine the Two
 When you understand the value of _Focused_ and _Diffuse_ modes individually, you can start to intentionally use them together. You can bounce from one to the other and speed up the digestion of new information.
 
-<figure markdown="span">
-  ![A woman reading intently in a library.](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/learning/lady-reading.webp){ width="600", loading=lazy, main-image }
-</figure>
-
 Finished a particularly gruelling article or chapter? Take a walk, go to the gym, do the dishes, listen to some instrumental music. Give yourself permission to STOP studying so that your brain can work more efficiently. There is little purpose in careering forwards into the next module before your brain has created neural connections for the module you just consumed.
 
 Let the foundation settle before you build on top of it.
 
 
---8<-- "includes/blog_series/how_we_learn.md"
 --8<-- "includes/books/a-mind-for-numbers.md"

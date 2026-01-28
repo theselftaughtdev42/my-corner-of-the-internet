@@ -1,22 +1,15 @@
 ---
-authors:
-  - tim
 date:
   created: 2024-05-28
-categories:
-  - Learning
 tags:
   - education
   - study
-  - personal-development
 description: The technique that turns complex concepts into manageable pieces
 title: Chunk It Up!
 series: How We Learn
 ---
 
 In the fast-paced world of learning, mastering new information can feel overwhelming. Whether you're tackling a new programming language, absorbing complex technical concepts, or even learning a new skill, our brains are constantly bombarded with data. To manage this flood of information, one of the most effective and natural strategies is _chunking_.
-
-<!-- more -->
 
 ## What is a Chunk?
 Chunking is an amazing and surprisingly natural way to learn new information. The basic idea is to isolate a piece of information as a single unit. This could be a concept or a fact etc. Sometimes these chunks may forever stay a single unit, but often as you continue to learn they compound into new chunks and link to other chunks. Let me demonstrate using a concept with which most of us should be familiar.
@@ -72,5 +65,4 @@ Train yourself to identify main ideas. It's tempting to feel you have to remembe
 Taking the practice further requires testing yourself routinely. Flashcards are the traditional technique here. Physical or digital. If you can create the questions yourself then even better! Try to at least test yourself on a subject before you go to sleep and the day after you studied it. The retrieval process helps to ingrain these chunks into our long-term memory. An effective way to implement recall is [Spaced Repetition](./spaced-repetition.md).
 
 
---8<-- "includes/blog_series/how_we_learn.md"
 --8<-- "includes/books/a-mind-for-numbers.md"
