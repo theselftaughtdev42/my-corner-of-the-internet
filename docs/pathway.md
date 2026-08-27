@@ -11,10 +11,6 @@ hide:
   <figurecaption>The Journey</figurecaption>
 </figure>
 
-I've opted for a self-directed learning path over a traditional degree, aiming for a balance of practical software skills, computer science, and vital life skills like leadership and finance. [I publish what I learn](blog/index.md), providing a resource for both myself and others.
-
-My curriculum features both structured and unstructured learning and will evolve with me as I learn. This approach ensures a tailored education aligned with my professional goals.
-
 ??? abstract "Legend/Key"
     Symbols used in the rest of this page.
 

@@ -14,6 +14,7 @@ extra_css:
 
 # Custom JS
 extra_javascript:
+  - javascripts/konami.js
   - javascripts/katex.js
   - https://unpkg.com/katex@0/dist/katex.min.js
   - https://unpkg.com/katex@0/dist/contrib/auto-render.min.js
@@ -150,7 +151,6 @@ hooks:
 # Site Navigation
 nav:
   - Home: index.md
-  - Self-Taught Pathway: pathway.md
   - Wiki:
     - wiki/index.md
     - How To Learn:
@@ -166,3 +166,4 @@ nav:
   - about.md
 not_in_nav: |
   health-check.html
+  pathway.md
