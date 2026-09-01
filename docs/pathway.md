@@ -11,10 +11,6 @@ hide:
   <figurecaption>The Journey</figurecaption>
 </figure>
 
-I've opted for a self-directed learning path over a traditional degree, aiming for a balance of practical software skills, computer science, and vital life skills like leadership and finance. [I publish what I learn](blog/index.md), providing a resource for both myself and others.
-
-My curriculum features both structured and unstructured learning and will evolve with me as I learn. This approach ensures a tailored education aligned with my professional goals.
-
 ??? abstract "Legend/Key"
     Symbols used in the rest of this page.
 
@@ -92,9 +88,6 @@ _Every resource in this stage is independent and can be completed at any time._
 - [x] Scrum: The Art of Doing Twice the Work in Half the Time
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] The Art of Agile Development
---8<-- "includes/icons/icon-book.md"
-
 - [ ] Accelerate: The Science of Lean Software and Devops
 --8<-- "includes/icons/icon-book.md"
 
@@ -146,6 +139,12 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] Never Split The Difference
 --8<-- "includes/icons/icon-book.md"
 
+- [ ] The Personal MBA
+--8<-- "includes/icons/icon-book.md"
+
+- [ ] Zero to One
+--8<-- "includes/icons/icon-book.md"
+
 
 ### Misc
 - [ ] Lectures (MIT) The Missing Semester
@@ -154,7 +153,7 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] Soft Skills: The Software Developer's Life Manual
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] Touch Typing
+- [ ] Touch Typing (keybr)
 
 - [ ] Give Vim a chance
 

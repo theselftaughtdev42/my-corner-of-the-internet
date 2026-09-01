@@ -6,32 +6,24 @@ hide:
     - toc
 ---
 
+
 <figure markdown="span" class="landing-logo">
-  ![Logo](assets/logo_light.svg#only-light){ width="800" }
-  ![Logo](assets/logo_dark.svg#only-dark){ width="800" }
+  ![Logo](assets/logo_light.svg#only-light){ width="600" }
+  ![Logo](assets/logo_dark.svg#only-dark){ width="600" }
 </figure>
+
 
 <div class="centered tagline" markdown>
-# Building software skills, exploring computer science and sharing the journey
+# Building software. Always learning. Sharing the journey.
 </div>
 
-<figure markdown="span" class="landing-img">
-  ![Man working at his laptop](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/misc/the-self-taught-dev.webp){ width="600" }
-</figure>
-
-
-<div class="centered" markdown>
-### Welcome! Thank you for visiting :heart_eyes:
-
-### I'm [Tim MacKay](./about.md), carving myself a path in software development. No traditional degree—just a passion for coding, computer science and self-improvement.
-
-### As I study, I publish what I learn. These writings help me learn and I hope they can help you too!
-</div>
 
 <div markdown class="landing-buttons-container">
 
-[What am I Writing? :material-book-open-variant:](./blog/index.md){ .md-button .md-button--primary }
+[My Wiki](./wiki/index.md){ .md-button }
 
-[Explore My Curriculum :fontawesome-solid-graduation-cap:](./pathway.md){ .md-button }
+[My Blog](./blog/index.md){ .md-button .md-button--primary }
+
+[About Me](./wiki/index.md){ .md-button }
 
 </div>
