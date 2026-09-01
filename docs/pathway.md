@@ -88,9 +88,6 @@ _Every resource in this stage is independent and can be completed at any time._
 - [x] Scrum: The Art of Doing Twice the Work in Half the Time
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] The Art of Agile Development
---8<-- "includes/icons/icon-book.md"
-
 - [ ] Accelerate: The Science of Lean Software and Devops
 --8<-- "includes/icons/icon-book.md"
 
@@ -142,6 +139,12 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] Never Split The Difference
 --8<-- "includes/icons/icon-book.md"
 
+- [ ] The Personal MBA
+--8<-- "includes/icons/icon-book.md"
+
+- [ ] Zero to One
+--8<-- "includes/icons/icon-book.md"
+
 
 ### Misc
 - [ ] Lectures (MIT) The Missing Semester
@@ -150,7 +153,7 @@ _Every resource in this stage is independent and can be completed at any time._
 - [ ] Soft Skills: The Software Developer's Life Manual
 --8<-- "includes/icons/icon-book.md"
 
-- [ ] Touch Typing
+- [ ] Touch Typing (keybr)
 
 - [ ] Give Vim a chance
 
