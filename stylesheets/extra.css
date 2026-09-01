@@ -1,0 +1,103 @@
+/* BRANDING */
+:root {
+  --md-primary-fg-color: #FF7F29;
+  --md-primary-bg-color: #f4f4f4;
+
+  --md-accent-fg-color: #FF5A29;
+}
+
+
+/* LANDING PAGE */
+.landing-logo {
+  padding-bottom: 2em;
+  padding-top: 2em;
+}
+
+.landing-buttons-container {
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1em;
+}
+
+div.tagline > h1 {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+
+/* CUSTOM CSS FOR SHARE WITH FRIENDS ADMONITION */
+@keyframes heart {
+  0%, 40%, 80%, 100% {
+    transform: scale(1);
+  }
+  20%, 60% {
+    transform: scale(1.15);
+  }
+}
+:root {
+  --md-admonition-icon--share-with-friends: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14 20.408c-.492.308-.903.546-1.192.709q-.23.129-.463.252h-.002a.75.75 0 0 1-.686 0 17 17 0 0 1-.465-.252 31 31 0 0 1-4.803-3.34C3.8 15.572 1 12.331 1 8.513 1 5.052 3.829 2.5 6.736 2.5 9.03 2.5 10.881 3.726 12 5.605 13.12 3.726 14.97 2.5 17.264 2.5 20.17 2.5 23 5.052 23 8.514c0 3.818-2.801 7.06-5.389 9.262A31 31 0 0 1 14 20.408"/></svg>')
+}
+.md-typeset .admonition.share-with-friends,
+.md-typeset details.share-with-friends {
+  border-color: #e92063;
+}
+.md-typeset .share-with-friends > .admonition-title,
+.md-typeset .share-with-friends > summary {
+  background: #260510;
+}
+.md-typeset .share-with-friends > .admonition-title::before,
+.md-typeset .share-with-friends > summary::before {
+  background-color: #e92063;
+  -webkit-mask-image: var(--md-admonition-icon--share-with-friends);
+          mask-image: var(--md-admonition-icon--share-with-friends);
+  animation: heart 1000ms infinite;
+}
+
+
+/* GENERAL */
+.grid.cards ul {
+  list-style-type: none;
+}
+
+div.centered {
+  text-align: center;
+}
+
+.share-social {
+  font-size: 1.5rem;
+  margin: 1rem;
+}
+
+.external-link-icon {
+  vertical-align: middle !important;
+}
+
+.profile-pic {
+  border-radius: 50%;
+}
+
+/* NOTABLES (about page) — statements split by an orange divider */
+.notables {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: .5rem;
+  text-align: center;
+}
+.md-typeset .notables p {
+  font-size: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  line-height: 1.7;
+}
+.md-typeset .notables hr {
+  border-bottom-color: #FF7F29;
+  margin: 1.5rem auto;
+}
