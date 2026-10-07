@@ -1,0 +1,96 @@
+---
+// Every note, and every series' page, lives under /notes/.
+import type { GetStaticPaths } from 'astro';
+import { getEntry, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Day from '../../components/Day.astro';
+import NoteItem from '../../components/NoteItem.astro';
+import SeriesBars from '../../components/SeriesBars.astro';
+import SeriesValue from '../../components/SeriesValue.astro';
+import { getLibrary, noteUrl, plural, seriesOf, seriesUrl, type Note, type Series } from '../../lib/notes';
+
+export const getStaticPaths = (async () => {
+  const library = await getLibrary();
+  const slug = (url: string) => url.replace(/^\/notes\/|\/$/g, '');
+  return [
+    ...library.series.map(series => ({ params: { slug: slug(seriesUrl(series)) }, props: { series } })),
+    ...library.notes.map(note => ({ params: { slug: slug(noteUrl(note)) }, props: { note } })),
+  ];
+}) satisfies GetStaticPaths;
+
+type Props = { series: Series; note?: undefined } | { note: Note; series?: undefined };
+const props = Astro.props as Props;
+const library = await getLibrary();
+
+const series = props.note ? seriesOf(library, props.note) : props.series;
+const note = props.note;
+const { Content } = note ? await render(note) : { Content: null };
+const book = note?.data.book ? await getEntry(note.data.book) : undefined;
+const next = note && series ? series.notes[note.data.part!] : undefined;
+
+const path = [{ label: 'notes', href: '/notes/' }, ...(series ? [{ label: series.slug, href: note ? seriesUrl(series) : undefined }] : [])];
+if (note) path.push({ label: noteUrl(note).split('/').at(-2)!, href: undefined });
+
+const pageUrl = new URL(note ? noteUrl(note) : seriesUrl(series!), Astro.site).href;
+const shareTitle = encodeURIComponent(`${note?.data.title ?? ''}\n`);
+const share = [
+  { label: 'X', url: `https://x.com/intent/tweet?text=${shareTitle}&url=${encodeURIComponent(pageUrl)}` },
+  { label: 'LinkedIn', url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(pageUrl)}` },
+  { label: 'Facebook', url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}` },
+];
+const card = `/og${note ? noteUrl(note) : seriesUrl(series!)}`.replace(/\/$/, '.png');
+---
+{note ? (
+  <Base title={note.data.title} description={note.data.description} path={path} card={card} type="article">
+    <main class="main page" id="main">
+      <article data-pagefind-body>
+        <header class="title">
+          <h1 class="h1">{note.data.title}</h1>
+          <div class="detail">
+            {series && <SeriesBars series={series} current={note} />}
+            <span>
+              {series && <span class="vh">{series.name}, </span>}
+              <span data-pagefind-ignore>
+                {series && <>Part {note.data.part} of {series.notes.length} <span class="dot" aria-hidden="true">·</span> </>}
+                <Day date={note.data.date.created} />
+              </span>
+            </span>
+          </div>
+        </header>
+        <div class="prose">
+          {Content && <Content />}
+          {book && (
+            <p class="note-source">This content was inspired by <em>{book.data.title}</em> — By {book.data.author}</p>
+          )}
+        </div>
+      </article>
+      <p class="share">
+        Share on{' '}
+        {share.map((s, i) => (
+          <>
+            <a href={s.url} target="_blank" rel="noopener">{s.label}<span class="vh"> (opens in a new tab)</span></a>{i < share.length - 2 ? ', ' : i === share.length - 2 ? ' or ' : ''}
+          </>
+        ))}
+      </p>
+      <nav class="onward" aria-label={next ? 'Next note' : 'More notes'}>
+        {next ? (
+          <a href={noteUrl(next)} class="next"><span class="next-k">Next</span><span class="next-t">{next.data.title}</span></a>
+        ) : (
+          <a href="/notes/" class="back">All notes</a>
+        )}
+      </nav>
+    </main>
+  </Base>
+) : (
+  <Base title={series!.name} description={`${plural(series!.notes.length, 'note')} in the ${series!.name} series.`} path={path} card={card}>
+    <main class="main page" id="main">
+      <header class="title">
+        <h1 class="h1">{series!.name}</h1>
+        <div class="detail"><span><SeriesValue series={series!} /></span></div>
+      </header>
+      <div class="list rich">
+        <ol class="items">{series!.notes.map(n => <NoteItem note={n} rich />)}</ol>
+      </div>
+    </main>
+  </Base>
+)}

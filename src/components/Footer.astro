@@ -1,0 +1,12 @@
+---
+import { SITE, SOCIAL } from '../lib/site';
+const year = new Date().getFullYear();
+---
+<footer class="foot">
+  <p>© {year} {SITE.author}</p>
+  <nav class="links" aria-label="More links">
+    <a href="/about/">About</a>
+    {SOCIAL.map(s => <a href={s.url} target="_blank" rel="noopener">{s.label}<span class="vh"> (opens in a new tab)</span></a>)}
+    <a href="/feed_rss_created.xml">RSS</a>
+  </nav>
+</footer>

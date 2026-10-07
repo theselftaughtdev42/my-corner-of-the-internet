@@ -1,0 +1,16 @@
+---
+import Base from '../../layouts/Base.astro';
+import NoteList from '../../components/NoteList.astro';
+import { getLibrary } from '../../lib/notes';
+
+const library = await getLibrary();
+const intro =
+  'This is essentially a library of my notes on subjects I have actively studied. Their primary purpose is for my own future reference but if you can salvage any value from them then have at it!';
+---
+<Base title="Notes" description="A place for me to collect my notes as I study." path={[{ label: 'notes' }]} card="/og/notes.png">
+  <main class="main page" id="main">
+    <header class="title"><h1 class="h1">Notes</h1></header>
+    <p class="intro">{intro}</p>
+    <NoteList library={library} rich />
+  </main>
+</Base>

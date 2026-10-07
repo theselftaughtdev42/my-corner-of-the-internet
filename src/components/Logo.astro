@@ -1,0 +1,13 @@
+---
+// The full logo from public/assets/logo_light.svg, with its dark parts in the text colour, so one copy
+// serves light and dark mode.
+import raw from '../../public/assets/logo_light.svg?raw';
+
+const inner = raw
+  .match(/<g id="Layer_1-2"[^>]*>([\s\S]*)<\/g>\s*<\/svg>/)![1]
+  .replaceAll('class="cls-1"', 'fill="currentColor"')
+  .replaceAll('class="cls-2"', 'fill="#FF7F29"')
+  .replace(/\s+/g, ' ')
+  .trim();
+---
+<svg viewBox="0 0 805.33 140.97" role="img" aria-label="The Self-Taught Dev" set:html={inner} />

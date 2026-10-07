@@ -1,0 +1,71 @@
+---
+// Home is the full logo, the tagline and a search box, with the newest notes and the series under it.
+// Typing swaps those lists for the notes that match.
+import Base from '../layouts/Base.astro';
+import Logo from '../components/Logo.astro';
+import SearchIcon from '../components/SearchIcon.astro';
+import Day from '../components/Day.astro';
+import SeriesValue from '../components/SeriesValue.astro';
+import NoteList from '../components/NoteList.astro';
+import { getLibrary, noteUrl, seriesAdded, seriesUrl } from '../lib/notes';
+import { SITE } from '../lib/site';
+
+const RECENT = 3;
+const library = await getLibrary();
+const recent = library.notes.slice(0, RECENT);
+const series = [...library.series].sort((a, b) => seriesAdded(b).getTime() - seriesAdded(a).getTime());
+---
+<Base card="/og/home.png">
+  <main class="main home" id="main">
+    <div class="hero">
+      <h1 class="logo"><Logo /></h1>
+      <p class="tagline">{SITE.tagline}</p>
+      <div class="field" role="search">
+        <SearchIcon />
+        <input
+          class="q"
+          id="q"
+          type="search"
+          placeholder={`Search ${library.notes.length} notes`}
+          aria-label="Search notes"
+          aria-controls="all-notes"
+          autocomplete="off"
+          autocapitalize="none"
+          spellcheck="false"
+          enterkeyhint="go"
+        />
+      </div>
+    </div>
+    <p class="status"><span class="msg" aria-live="polite"></span></p>
+    <div class="below">
+      <div class="rest">
+        <section class="sec" aria-labelledby="h-recent">
+          <div class="sec-head">
+            <h2 class="sname" id="h-recent">Recent notes</h2>
+            <a href="/notes/" class="all">All notes</a>
+          </div>
+          <ul class="rows">
+            {recent.map(note => (
+              <li><a href={noteUrl(note)} class="item row"><span class="t">{note.data.title}</span><span class="v"><Day date={note.data.date.created} /></span></a></li>
+            ))}
+          </ul>
+        </section>
+        {series.length > 0 && (
+          <section class="sec" aria-labelledby="h-series">
+            <div class="sec-head"><h2 class="sname" id="h-series">Series</h2></div>
+            <ul class="rows">
+              {series.map(s => (
+                <li><a href={seriesUrl(s)} class="item row"><span class="t">{s.name}</span><span class="v"><SeriesValue series={s} /></span></a></li>
+              ))}
+            </ul>
+          </section>
+        )}
+      </div>
+      <NoteList library={library} id="all-notes" hidden />
+    </div>
+  </main>
+</Base>
+
+<script>
+  import '../scripts/search';
+</script>

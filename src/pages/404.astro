@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Page not found" path={[{ label: '404' }]} card="/og/home.png">
+  <main class="main page" id="main">
+    <header class="title">
+      <h1 class="h1">Page not found</h1>
+      <div class="detail"><span>Nothing lives at this address.</span></div>
+    </header>
+    <nav class="onward" aria-label="Find a note">
+      <a href="/#search" class="back" data-search-link>Search the notes</a>
+    </nav>
+  </main>
+</Base>
