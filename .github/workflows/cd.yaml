@@ -8,36 +8,37 @@ on:
 permissions:
   contents: write
 
+# One deploy at a time, in order.
+concurrency:
+  group: deploy
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Configure Git Credentials
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      - name: Build the site
+        run: npm run build
+        env:
+          # Google Analytics runs on the live site only.
+          PUBLIC_GA_ID: G-9CR821NBE4
+
+      # GitHub Pages serves the gh-pages branch, as it did for MkDocs: replace it with the new build.
+      - name: Publish to the gh-pages branch
+        working-directory: dist
         run: |
+          git init -q -b gh-pages
           git config user.name github-actions[bot]
           git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-      
-      - name: Install uv
-        uses: astral-sh/setup-uv@v2
-        with:
-          version: 0.4.16
-      
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: '.python-version'
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-
-      - name: Install Project
-        uses: actions/cache@v4
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-      - run: uv run scripts/enable_analytics.py
-      - run: uv sync
-
-      - name: Deploy Project
-        run: uv run mkdocs gh-deploy --force
+          git add -A
+          git commit -q -m "Deploy ${GITHUB_SHA}"
+          git push -q -f "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" gh-pages
