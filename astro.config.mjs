@@ -40,7 +40,7 @@ export default defineConfig({
               children: [{ type: 'text', value: ' (opens in a new tab)' }],
             },
             // A picture's link to its own full-size file opens in the picture viewer instead.
-            test: el => !String(el.properties.className ?? '').includes('fig-frame'),
+            test: (/** @type {import('hast').Element} */ el) => !String(el.properties.className ?? '').includes('fig-frame'),
           },
         ],
       ],
