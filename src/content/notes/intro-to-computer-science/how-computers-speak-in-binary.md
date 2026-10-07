@@ -60,7 +60,7 @@ terabyte = a trillion = `TB` = 2<sup>40</sup> = `1,024 GB`
 
 petabyte = a quadrillion = `PB` = 2<sup>50</sup> = `1,024 TB`
 
-## Measuring Data Transmission
+## Measuring Data Transmission
 _Data transmission_ is the transfer of data from one device to another. That could be from your computer to an external hard drive. It also includes browsing the internet and watching YouTube, as your device has to download the content before you can consume it. Have you ever renewed your internet contract and wondered what the advertised speeds actually meant? This is where we shine a light on that.
 
 Measuring the speed of data transmission differs from measuring data storage. Data is transferred one bit at a time, albeit at an extremely fast rate! This makes measurement simple because we track the number of _bits per second (bps)_ transferred.
