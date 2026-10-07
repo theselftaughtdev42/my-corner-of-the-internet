@@ -1,13 +1,14 @@
-# virtual environment
-venv
+# dependencies
+node_modules
 
-# build files
-site
+# build output
+dist
+.astro
 
 # system files
 .DS_Store
 .vscode
 
-#caches
+# caches
 .cache
 __pycache__
