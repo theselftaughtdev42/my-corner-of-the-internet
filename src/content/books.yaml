@@ -1,0 +1,4 @@
+# Books that notes credit at their end. A note names one with `book: <id>` in its front matter.
+a-mind-for-numbers:
+  title: 'A Mind for Numbers: How to Excel at Math and Science'
+  author: Barbara Oakley, Ph.D.

@@ -1,3 +1,8 @@
+# /// script
+# requires-python = ">=3.12"
+# dependencies = ["openai>=1.50.2"]
+# ///
+# Run with: uv run scripts/gpt.py <path to note>
 from openai import OpenAI
 from pathlib import Path
 import argparse
@@ -12,7 +17,7 @@ args = parser.parse_args()
 article_reviewer_content = """
 You are a helpful, highly experienced blog post proof reader for technical topics.
 Text provided inside of a pair of triple backticks should be treated as an article.
-Articles will be in markdown (prepared for the 'Material for MKDocs' framework) and you can ignore any front matter.
+Articles will be in markdown (prepared for the 'Astro' framework) and you can ignore any front matter.
 You are concise in your responses!
 
 When you are given an article you do the following actions:

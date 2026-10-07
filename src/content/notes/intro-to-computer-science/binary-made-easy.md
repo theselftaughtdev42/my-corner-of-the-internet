@@ -1,30 +1,28 @@
 ---
+title: Binary Made Easy
+description: Discover how binary numbers mirror the familiar decimal system and see how counting in twos can be surprisingly simple.
 date:
   created: 2025-01-13
-tags:
-  - computer-science
-  - cs
-description: Discover how binary numbers mirror the familiar decimal system and see how counting in twos can be surprisingly simple.
-title: Binary Made Easy
 series: Intro to Computer Science
+part: 1
+tags:
+- computer-science
+- cs
 ---
 
 Binary numbers might seem mystifying at first glance, but this article breaks it down into familiar logic you use every day. By explaining the parallels between counting in tens and counting in twos, you'll be guided to understand how ones and zeros can represent anything!
 
-!!! warning "Joke Alert!"
-    
-    "There are 10 types of people in this world, those who understand binary and those who don't." – _(Source Unknown)_
+:::warning[Joke Alert!]
+"There are 10 types of people in this world, those who understand binary and those who don't." – _(Source Unknown)_
 
-    If you don't get this joke now, you will by the end of this article.
+If you don't get this joke now, you will by the end of this article.
+:::
 
 ---
 
 Many people find binary intimidating, but it's simpler than you think. If you can count, then you can read binary. Today, we will break down this problem by reviewing how we understand numbers and then applying that same logic to binary.
 
-<figure markdown="span">
-  ![An abstract painting interweaving technology with swirling clouds.](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/computing-fundamentals/binary.webp){ width="600", loading=lazy, main-image }
-</figure>
-
+![An abstract painting interweaving technology with swirling clouds.](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/computing-fundamentals/binary.webp)
 
 ## Decimal System
 In everyday life, when we count we typically use the decimal numbering system. In this system, a single digit is often referred to as a unit:
@@ -43,7 +41,6 @@ When we reach ten units, we reset our units to zero and add another digit to the
 | 1 | 0 | 0 | 0 | One Thousand| 1,000 |
 | 2 | 3 | 4 | 5 | Two Thousand Three Hundred Forty-Five | 2,345 |
 
-
 ## Recognising Binary
 Decimal numbers can be described as _"a sequence of digits ranging from 0 to 9"_. In the very same fashion, we can describe binary numbers as _"a sequence of digits ranging from 0 to 1"_. The following examples are all binary numbers:
 
@@ -51,7 +48,6 @@ Decimal numbers can be described as _"a sequence of digits ranging from 0 to 9"_
 - 0001
 - 0
 - 1111
-
 
 ## Binary System
 The binary numbering system is a cousin to the decimal numbering system. It is used to represent the same numbers, they just look different.
@@ -67,7 +63,6 @@ Take some time to look over this table. Pay close attention to the column names 
 | 0 | 0 | 1 | 1 | Three | `0011` |
 | 0 | 1 | 0 | 0 | Four | `0100` |
 | 0 | 1 | 0 | 1 | Five | `0101` |
-
 
 ## Converting Binary to Decimal
 In my experience, manually converting a few binary numbers into decimal helps to solidify the concept. Let's use the binary number `101101` as an example.
