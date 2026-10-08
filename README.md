@@ -15,7 +15,8 @@ npm run preview   # serve dist/, with full-text search
 
 ## Writing a note
 Copy `templates/note.md` into `src/content/notes/`. A note in a series goes in the series' folder
-(`src/content/notes/how-we-learn/`) with `series` and `part` in its front matter. The build checks every
+(`src/content/notes/how-we-learn/`) with `series` and `part` in its front matter; a new series gets a new
+folder, whose name becomes its address (`/notes/how-we-learn/`). The build checks every
 note's front matter, so a typo fails the build instead of quietly dropping a note.
 
 - Callout boxes: `:::tip[Optional title]` … `:::` (also `note`, `info`, `question`, `warning`, `danger`).

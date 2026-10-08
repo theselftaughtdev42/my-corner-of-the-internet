@@ -18,13 +18,10 @@ export interface Library {
   standalone: Note[];
 }
 
-export const slugify = (text: string) =>
-  text.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+/** A series note's folder, which names the series in its address. */
+const folder = (note: Note) => (note.id.includes('/') ? note.id.split('/')[0] : undefined);
 
-const fileSlug = (note: Note) => note.id.split('/').pop()!;
-
-export const noteUrl = (note: Note) =>
-  note.data.series ? `/notes/${slugify(note.data.series)}/${fileSlug(note)}/` : `/notes/${fileSlug(note)}/`;
+export const noteUrl = (note: Note) => `/notes/${note.id}/`;
 
 export const seriesUrl = (series: Series) => `/notes/${series.slug}/`;
 
@@ -54,27 +51,35 @@ export function getLibrary(): Promise<Library> {
 async function load(): Promise<Library> {
   const notes = (await getCollection('notes', n => import.meta.env.DEV || !n.data.draft)).sort(newestFirst);
 
+  // Each series has its own folder, whose name is the series' address (short names keep the path readable).
   const bySeries = new Map<string, Note[]>();
+  const folderSeries = new Map<string, string>();
   for (const note of notes) {
     const name = note.data.series;
-    const inFolder = note.id.includes('/');
-    if (name && note.id !== `${slugify(name)}/${fileSlug(note)}`) {
-      throw new Error(`${note.id}: a note in "${name}" belongs in src/content/notes/${slugify(name)}/.`);
+    const dir = folder(note);
+    if (name && !dir) {
+      throw new Error(`${note.id}: a note in "${name}" belongs in that series' folder in src/content/notes/.`);
     }
-    if (!name && inFolder) {
+    if (!name && dir) {
       throw new Error(`${note.id}: a note in a folder needs "series" and "part" in its front matter.`);
     }
-    if (name) bySeries.set(name, [...(bySeries.get(name) ?? []), note]);
+    if (!name || !dir) continue;
+    const other = folderSeries.get(dir);
+    if (other && other !== name) throw new Error(`${note.id}: the ${dir}/ folder holds "${other}", not "${name}".`);
+    folderSeries.set(dir, name);
+    bySeries.set(name, [...(bySeries.get(name) ?? []), note]);
   }
 
   const series: Series[] = [...bySeries].map(([name, members]) => {
+    const dirs = new Set(members.map(folder));
+    if (dirs.size > 1) throw new Error(`"${name}" is split across folders ${[...dirs].join(', ')}; keep it in one.`);
     const ordered = members.sort((a, b) => a.data.part! - b.data.part!);
     ordered.forEach((n, i) => {
       if (n.data.part !== i + 1) {
         throw new Error(`"${name}" needs parts 1 to ${ordered.length}, one note each; ${n.id} is part ${n.data.part}.`);
       }
     });
-    return { slug: slugify(name), name, notes: ordered };
+    return { slug: folder(ordered[0])!, name, notes: ordered };
   });
   series.sort((a, b) => a.notes[0].data.date.created.getTime() - b.notes[0].data.date.created.getTime());
 

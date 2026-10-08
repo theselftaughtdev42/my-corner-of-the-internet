@@ -7,7 +7,7 @@ description: TODO
 date:
   created: 1900-01-01
   # updated: 1900-01-01
-# For a note in a series, put the file in src/content/notes/<series-name-as-slug>/ and set both:
+# For a note in a series, put the file in that series' folder (its name is the series' address) and set both:
 # series: TODO
 # part: 1
 # For a note that credits a book from src/content/books.yaml:
