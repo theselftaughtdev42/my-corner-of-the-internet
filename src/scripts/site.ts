@@ -1,4 +1,7 @@
-// Behaviour on every page: the "/" shortcut to search, the picture viewer, and the Konami code.
+// Behaviour on every page: the footer's year, the "/" shortcut to search, the picture viewer, and the Konami code.
+
+// The footer's copyright year is the reader's current year, not the year the site was last built.
+document.querySelectorAll('[data-year]').forEach(el => (el.textContent = String(new Date().getFullYear())));
 
 /** Set when a reader goes to search from another page, so Esc in the empty box can take them back. */
 export const FROM_KEY = 'search-from';

@@ -30,7 +30,8 @@ export async function rssFeed(site: URL, order: FeedOrder) {
       description: n.data.description,
       link: noteUrl(n),
       pubDate: dateOf(n, order),
-      author: SITE.author,
+      // RSS wants an email address here, with the name in brackets after it.
+      author: `${SITE.email} (${SITE.author})`,
       categories: n.data.series ? [n.data.series] : undefined,
     })),
   });

@@ -1,9 +1,10 @@
 ---
 import { SITE, SOCIAL } from '../lib/site';
+// The year the site was built; the page script swaps in the reader's current year.
 const year = new Date().getFullYear();
 ---
 <footer class="foot">
-  <p>© {year} {SITE.author}</p>
+  <p>© <span data-year>{year}</span> {SITE.author}</p>
   <nav class="links" aria-label="More links">
     <a href="/about/">About</a>
     {SOCIAL.map(s => <a href={s.url} target="_blank" rel="noopener">{s.label}<span class="vh"> (opens in a new tab)</span></a>)}
