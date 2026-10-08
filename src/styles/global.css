@@ -69,6 +69,7 @@ h1, h2, h3, h4 { font-weight: 700; }
 button, input { font-family: inherit; }
 :focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
 mark { background: none; color: inherit; font-weight: 700; padding: 0; }
+.nowrap { white-space: nowrap; }
 .vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .skip { position: absolute; left: 16px; top: -100px; z-index: 10; padding: 8px 14px; border-radius: 8px; background: var(--fg); color: var(--bg); font-size: var(--s); text-decoration: none; }
 .skip:focus { top: 12px; }
@@ -134,7 +135,7 @@ mark { background: none; color: inherit; font-weight: 700; padding: 0; }
   cursor: pointer;
 }
 .status { margin: 0; }
-.msg { display: block; margin-top: 28px; font-size: var(--m); line-height: 1.6; color: var(--muted); }
+.msg { display: block; margin-top: 28px; font-size: var(--m); line-height: 1.6; color: var(--muted); overflow-wrap: anywhere; }
 .msg:empty { display: none; }
 .below { margin-top: 64px; }
 
@@ -231,14 +232,14 @@ mark { background: none; color: inherit; font-weight: 700; padding: 0; }
 /* Headers line up with their numbers (a table that sets its own alignment keeps it). */
 .prose th { font-weight: 700; border-bottom-color: var(--fg); white-space: nowrap; }
 .prose th:not([align]) { text-align: left; }
-.prose .katex math { font-size: 1.1em; }
+.prose .katex math { font-family: var(--mono); font-size: 1.02em; }
 .prose p:has(> .katex:only-child) { text-align: center; margin: 1.4em 0; }
 .prose .note-source { margin-top: 2.6em; font-size: var(--s); line-height: 1.6; color: var(--muted); }
 
 /* Pictures fill the column; diagrams sit on a plain plate. In dark mode the plate is the brand off-white,
    and the diagrams' white grounds take on its tone. */
 .fig { margin: 2.4em 0; }
-.fig figcaption { font-size: var(--s); line-height: 1.6; color: var(--muted); margin-top: .6em; text-align: center; }
+.fig figcaption { font-size: var(--s); color: var(--muted); margin-top: .6em; text-align: center; }
 .prose a.fig-frame { display: block; text-decoration: none; cursor: zoom-in; }
 .fig-picture img { display: block; width: 100%; height: auto; }
 .fig-diagram .fig-frame { width: fit-content; max-width: 100%; margin-inline: auto; padding: 18px; background: var(--plate); }
@@ -287,7 +288,12 @@ mark { background: none; color: inherit; font-weight: 700; padding: 0; }
 .viewer[open] { display: grid; place-items: center; }
 .viewer::backdrop { background: rgb(31 33 40 / .88); }
 .viewer img { max-width: 100%; max-height: 100%; object-fit: contain; }
-.viewer img.is-diagram { padding: 18px; background: #FFFFFF; }
+/* A diagram opens bigger than on the page, on the same plate. */
+.viewer img.is-diagram { box-sizing: border-box; width: min(100%, 720px); height: auto; padding: 18px; background: #FFFFFF; }
+@media (prefers-color-scheme: dark) {
+  /* The same tone as the page's dark-mode plate: #F4F4F4 is white at 95.7%. */
+  .viewer img.is-diagram { filter: brightness(.957); }
+}
 .viewer button { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border: 0; border-radius: 8px; background: none; color: #F4F4F4; font-size: 28px; line-height: 1; cursor: pointer; }
 
 /* ---------- Phone ---------- */
@@ -320,7 +326,10 @@ mark { background: none; color: inherit; font-weight: 700; padding: 0; }
   .prose .table-scroll {
     -webkit-mask-image: linear-gradient(to left, transparent, #000 var(--cut));
     mask-image: linear-gradient(to left, transparent, #000 var(--cut));
-    animation: cut linear both;
+    /* Longhands: the minifier folds the shorthand and the timeline into one invalid declaration. */
+    animation-name: cut;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
     animation-timeline: scroll(self inline);
   }
   .fig-diagram .fig-frame { padding: 12px; }

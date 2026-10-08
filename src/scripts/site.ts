@@ -40,6 +40,12 @@ function openPicture(img: HTMLImageElement) {
     document.body.append(viewer);
   }
   const big = viewer.querySelector('img')!;
+  // The picture's own size keeps its shape while the full-size file loads.
+  for (const a of ['width', 'height']) {
+    const v = img.getAttribute(a);
+    if (v) big.setAttribute(a, v);
+    else big.removeAttribute(a);
+  }
   big.src = img.currentSrc || img.src;
   big.alt = img.alt;
   big.classList.toggle('is-diagram', !!img.closest('.fig-diagram'));

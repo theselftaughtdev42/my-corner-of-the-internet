@@ -5,7 +5,10 @@ const { frontmatter } = Astro.props;
 ---
 <Base title={frontmatter.title} description={frontmatter.description} path={[{ label: 'pathway' }]} card="/og/pathway.png">
   <main class="main page" id="main">
-    <header class="title"><h1 class="h1">{frontmatter.title}</h1></header>
+    <header class="title">
+      {/* A hyphenated word ("Self-Taught") stays on one line. */}
+      <h1 class="h1">{frontmatter.title.split(/(\S+-\S+)/).map((part: string, i: number) => (i % 2 ? <span class="nowrap">{part}</span> : part))}</h1>
+    </header>
     <div class="prose"><slot /></div>
   </main>
 </Base>
