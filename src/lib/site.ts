@@ -2,7 +2,7 @@ export const SITE = {
   name: 'The Self-Taught Dev',
   author: 'Tim MacKay',
   email: 'odd.door45951@fastmail.com',
-  description: 'Studying computer science and sharing the journey',
+  description: 'Studying computer science, building intersting things and sharing the journey',
   tagline: 'Build. Learn. Share.',
 };
 

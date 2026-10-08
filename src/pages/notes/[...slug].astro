@@ -60,7 +60,7 @@ const card = `/og${note ? noteUrl(note) : seriesUrl(series!)}`.replace(/\/$/, '.
         <div class="prose">
           {Content && <Content />}
           {book && (
-            <p class="note-source">This content was inspired by <em>{book.data.title}</em> — By {book.data.author}</p>
+            <p class="note-source">This content was inspired by <em>{book.data.title}</em> — {book.data.author}</p>
           )}
         </div>
       </article>

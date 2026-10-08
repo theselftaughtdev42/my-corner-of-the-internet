@@ -2,7 +2,7 @@
 
 ### Issue tracker
 
-Issues are tracked in GitHub Issues (`simplytim42/my-corner-of-the-internet`) via the `gh` CLI. See `docs/agents/issue-tracker.md`.
+Issues are tracked in GitHub Issues (`theselftaughtdev42/my-corner-of-the-internet`) via the `gh` CLI. See `docs/agents/issue-tracker.md`.
 
 ### Domain docs
 
