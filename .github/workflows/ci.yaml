@@ -18,6 +18,9 @@ jobs:
 
       - run: npm ci
 
+      - name: Run the unit tests
+        run: npm test
+
       # Type-checks the code, checks every note's front matter, builds the site and its search index.
       - name: Build the site
         run: npm run build
