@@ -21,7 +21,7 @@ const notes = defineCollection({
       tags: z.array(z.string()).default([]),
       draft: z.boolean().default(false),
     })
-    .refine(note => !note.series === !note.part, {
+    .refine((note) => !note.series === !note.part, {
       message: 'A note in a series needs a part number, and a part number needs a series.',
     }),
 });

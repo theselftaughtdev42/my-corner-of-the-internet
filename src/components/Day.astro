@@ -1,6 +1,9 @@
 ---
 import { dayText, isoDate } from '../lib/notes';
-interface Props { date: Date }
+interface Props {
+  date: Date;
+}
 const { date } = Astro.props;
 ---
+
 <time datetime={isoDate(date)}>{dayText(date)}</time>

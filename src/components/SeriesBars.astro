@@ -2,14 +2,25 @@
 // A note's place in its series: one bar per note in reading order, each a link to that note. The current
 // note's bar is orange, and a picture rather than a link to this same page.
 import { noteUrl, plural, type Note, type Series } from '../lib/notes';
-interface Props { series: Series; current: Note }
+interface Props {
+  series: Series;
+  current: Note;
+}
 const { series, current } = Astro.props;
 ---
+
 <div class="bars" role="group" aria-label={`${series.name}: ${plural(series.notes.length, 'note')} in order`}>
   {series.notes.map((note, i) => {
     const title = `${i + 1}. ${note.data.title}`;
-    return note.id === current.id
-      ? <span class="bar is-current" role="img" title={title} aria-label={`Part ${i + 1}: ${note.data.title}, this note`} />
-      : <a class="bar" href={noteUrl(note)} title={title} aria-label={`Part ${i + 1}: ${note.data.title}`} />;
+    return note.id === current.id ? (
+      <span
+        class="bar is-current"
+        role="img"
+        title={title}
+        aria-label={`Part ${i + 1}: ${note.data.title}, this note`}
+      />
+    ) : (
+      <a class="bar" href={noteUrl(note)} title={title} aria-label={`Part ${i + 1}: ${note.data.title}`} />
+    );
   })}
 </div>

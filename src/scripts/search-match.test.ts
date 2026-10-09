@@ -18,7 +18,9 @@ describe('terms', () => {
 
 describe('esc', () => {
   it('escapes HTML', () => {
-    expect(esc(`<a href="x">Tom's & Jerry's</a>`)).toBe('&lt;a href=&quot;x&quot;&gt;Tom&#39;s &amp; Jerry&#39;s&lt;/a&gt;');
+    expect(esc(`<a href="x">Tom's & Jerry's</a>`)).toBe(
+      '&lt;a href=&quot;x&quot;&gt;Tom&#39;s &amp; Jerry&#39;s&lt;/a&gt;',
+    );
   });
 });
 
@@ -57,10 +59,13 @@ describe('findInList', () => {
     { url: '/a/', title: 'Spaced repetition', description: 'Remember more by reviewing', series: 'How We Learn' },
     { url: '/c/', title: 'To uni or not', description: 'A choice', series: '' },
   ];
-  const urls = (q: string) => findInList(q, notes).map(h => [h.url, h.score]);
+  const urls = (q: string) => findInList(q, notes).map((h) => [h.url, h.score]);
 
   it('scores the title above the description, and both above the series, best first', () => {
-    expect(urls('spaced')).toEqual([['/a/', 10], ['/b/', 4]]);
+    expect(urls('spaced')).toEqual([
+      ['/a/', 10],
+      ['/b/', 4],
+    ]);
     expect(urls('learn')).toEqual([['/a/', 3]]);
   });
 
@@ -80,7 +85,9 @@ describe('findInList', () => {
 
 describe('snippet', () => {
   it('shows the description, marked, when the words are in it', () => {
-    expect(snippet('Learn faster', ['learn'], { url: '/a/', score: 1, excerpt: 'other' })).toBe('<mark>Learn</mark> faster');
+    expect(snippet('Learn faster', ['learn'], { url: '/a/', score: 1, excerpt: 'other' })).toBe(
+      '<mark>Learn</mark> faster',
+    );
   });
 
   it("falls back to Pagefind's excerpt when they aren't", () => {
@@ -102,6 +109,11 @@ describe('byBestMatch', () => {
       { name: 'third', best: 0, place: 2 },
       { name: 'fourth', best: 5, place: 3 },
     ];
-    expect([...groups].reverse().sort(byBestMatch).map(g => g.name)).toEqual(['second', 'fourth', 'first', 'third']);
+    expect(
+      [...groups]
+        .reverse()
+        .sort(byBestMatch)
+        .map((g) => g.name),
+    ).toEqual(['second', 'fourth', 'first', 'third']);
   });
 });

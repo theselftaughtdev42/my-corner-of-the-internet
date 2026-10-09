@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import remarkCallouts from './remark-callouts.mjs';
 import { render } from './render.test-helper.mjs';
 
-const md = markdown => render(markdown, { remark: [remarkCallouts] });
+const md = (markdown) => render(markdown, { remark: [remarkCallouts] });
 
 describe('remarkCallouts', () => {
   it('turns a callout into an aside with its default title', async () => {
@@ -18,7 +18,9 @@ describe('remarkCallouts', () => {
   });
 
   it('fails on an unknown callout', async () => {
-    await expect(md(':::shout\nHey.\n:::')).rejects.toThrow('Unknown callout ":::shout". Use one of: note, info, tip, question, warning, danger.');
+    await expect(md(':::shout\nHey.\n:::')).rejects.toThrow(
+      'Unknown callout ":::shout". Use one of: note, info, tip, question, warning, danger.',
+    );
   });
 
   it('puts colons in running text back as written', async () => {

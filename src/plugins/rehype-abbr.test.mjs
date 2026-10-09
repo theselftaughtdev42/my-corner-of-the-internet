@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import rehypeAbbr from './rehype-abbr.mjs';
 import { render } from './render.test-helper.mjs';
 
-const md = markdown => render(markdown, { rehype: [rehypeAbbr] });
+const md = (markdown) => render(markdown, { rehype: [rehypeAbbr] });
 
 describe('rehypeAbbr', () => {
   it('wraps each abbreviation with its meaning', async () => {
@@ -16,7 +16,9 @@ describe('rehypeAbbr', () => {
   });
 
   it('matches whole words only', async () => {
-    expect(await md('CSSX, API-first and RAFT stay as they are.')).toBe('<p>CSSX, API-first and RAFT stay as they are.</p>');
+    expect(await md('CSSX, API-first and RAFT stay as they are.')).toBe(
+      '<p>CSSX, API-first and RAFT stay as they are.</p>',
+    );
   });
 
   it('leaves code alone', async () => {

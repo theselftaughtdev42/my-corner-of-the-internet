@@ -9,13 +9,15 @@ vi.mock('astro/assets/utils', () => ({
 
 // Measured sizes are kept per address, so each test uses its own.
 let n = 0;
-const url = ext => `https://example.com/${++n}.${ext}`;
+const url = (ext) => `https://example.com/${++n}.${ext}`;
 
 const svgs = new Map();
 const serve = (src, svg) => (svgs.set(src, svg), src);
 
 beforeEach(() => {
-  vi.stubGlobal('fetch', async src => (svgs.has(src) ? new Response(svgs.get(src)) : new Response('', { status: 404 })));
+  vi.stubGlobal('fetch', async (src) =>
+    svgs.has(src) ? new Response(svgs.get(src)) : new Response('', { status: 404 }),
+  );
   vi.spyOn(console, 'warn').mockImplementation(() => {});
 });
 afterEach(() => {
@@ -23,7 +25,7 @@ afterEach(() => {
   vi.restoreAllMocks();
 });
 
-const md = markdown => render(markdown, { rehype: [rehypeFigures] });
+const md = (markdown) => render(markdown, { rehype: [rehypeFigures] });
 
 describe('rehypeFigures', () => {
   it('makes a picture on its own line a figure, captioned by its title', async () => {
@@ -68,6 +70,8 @@ describe('rehypeFigures', () => {
   it('warns about a diagram with no size', async () => {
     const src = serve(url('svg'), '<svg></svg>');
     await md(`![Flow](${src})`);
-    expect(console.warn).toHaveBeenCalledWith(`[figures] Couldn't measure ${src}: no width, height or viewBox on its <svg> tag`);
+    expect(console.warn).toHaveBeenCalledWith(
+      `[figures] Couldn't measure ${src}: no width, height or viewBox on its <svg> tag`,
+    );
   });
 });

@@ -28,6 +28,7 @@ const cardUrl = new URL(card, Astro.site);
 // Analytics run only on the live site: the deploy workflow sets the ID.
 const gaId = import.meta.env.PUBLIC_GA_ID;
 ---
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -60,7 +61,11 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
         <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
         <script is:inline define:vars={{ gaId }}>
           window.dataLayer = window.dataLayer || [];
-          function gtag() { dataLayer.push(arguments); }
+          function gtag() {
+            // gtag.js needs the arguments object itself: it ignores an array from rest parameters.
+            // eslint-disable-next-line prefer-rest-params
+            dataLayer.push(arguments);
+          }
           gtag('js', new Date());
           gtag('config', gaId);
         </script>
@@ -68,7 +73,9 @@ const gaId = import.meta.env.PUBLIC_GA_ID;
     )}
   </head>
   <body>
-    <a class="skip" href="#main">Skip to content</a>
+    <a class="skip" href="#main">
+      Skip to content
+    </a>
     {path && <Header path={path} />}
     <slot />
     <Footer />

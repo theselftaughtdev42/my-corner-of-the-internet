@@ -39,12 +39,12 @@ if (box && list && rest && below && msg) {
 
   async function findWithPagefind(pf: Pagefind, q: string): Promise<Hit[]> {
     const { results } = await pf.search(q);
-    const data = await Promise.all(results.slice(0, 40).map(r => r.data()));
+    const data = await Promise.all(results.slice(0, 40).map((r) => r.data()));
     return data.map((d, i) => ({ url: pagePath(d.url, location.origin), score: data.length - i, excerpt: d.excerpt }));
   }
 
   const listed = () =>
-    $$<HTMLElement>('.li', list!).map(li => ({
+    $$<HTMLElement>('.li', list!).map((li) => ({
       url: li.dataset.url!,
       title: li.dataset.title || '',
       description: li.dataset.description || '',
@@ -63,12 +63,12 @@ if (box && list && rest && below && msg) {
   let py: number | null = null;
 
   // Whatever is listed under the box right now: the recent notes and series, or the matches.
-  const shown = () => $$<HTMLAnchorElement>('.item', below).filter(a => a.getClientRects().length);
+  const shown = () => $$<HTMLAnchorElement>('.item', below).filter((a) => a.getClientRects().length);
 
   // One underline marks the note Enter opens: the best match, or wherever the arrows or mouse moved it.
   function select(i: number, scroll = false) {
     const items = shown();
-    $$('.item.is-sel', below!).forEach(a => a.classList.remove('is-sel'));
+    $$('.item.is-sel', below!).forEach((a) => a.classList.remove('is-sel'));
     sel = items.length && i >= 0 ? i % items.length : -1;
     if (sel < 0) return;
     items[sel].classList.add('is-sel');
@@ -96,7 +96,7 @@ if (box && list && rest && below && msg) {
     list!.hidden = !res;
     rest!.hidden = !!res;
     const ts = terms(q);
-    const hits = new Map((res || []).map(h => [h.url, h]));
+    const hits = new Map((res || []).map((h) => [h.url, h]));
     const groups = $$<HTMLElement>('.group', list!);
     for (const g of groups) {
       let best = 0;
@@ -112,18 +112,21 @@ if (box && list && rest && below && msg) {
       g.hidden = !!res && !best;
       g.dataset.best = String(best);
     }
-    groups
-      .sort((a, b) => byBestMatch(rank(a), rank(b)))
-      .forEach(g => list!.appendChild(g));
+    groups.sort((a, b) => byBestMatch(rank(a), rank(b))).forEach((g) => list!.appendChild(g));
     list!.classList.toggle('is-found', !!res);
     let top = -1;
     let score = 0;
     shown().forEach((a, i) => {
       const hit = hits.get(a.closest<HTMLElement>('.li')?.dataset.url ?? '');
-      if (hit && hit.score > score) { top = i; score = hit.score; }
+      if (hit && hit.score > score) {
+        top = i;
+        score = hit.score;
+      }
     });
     select(top);
-    const count = res ? res.filter(h => $$<HTMLElement>('.li', list!).some(li => li.dataset.url === h.url)).length : 0;
+    const count = res
+      ? res.filter((h) => $$<HTMLElement>('.li', list!).some((li) => li.dataset.url === h.url)).length
+      : 0;
     if (!res) tell('', false);
     else if (!count) tell(`No notes match “${q.trim()}”.`, true);
     else tell(`${plural(count, 'note')} found. ${opens()}`, false);
@@ -149,7 +152,7 @@ if (box && list && rest && below && msg) {
     const top = box.getBoundingClientRect().top + window.scrollY - 16;
     if (top > window.scrollY) window.scrollTo({ top });
   });
-  box.addEventListener('keydown', e => {
+  box.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
       e.preventDefault();
       const n = shown().length;
@@ -175,7 +178,7 @@ if (box && list && rest && below && msg) {
 
   // Keys on a focused row: the arrows move focus along the rows (the selection follows it), and Esc goes
   // back to the box.
-  below.addEventListener('keydown', e => {
+  below.addEventListener('keydown', (e) => {
     const a = (e.target as Element).closest<HTMLAnchorElement>('.item');
     if (!a) return;
     if (e.key === 'Escape') {
@@ -189,17 +192,17 @@ if (box && list && rest && below && msg) {
     }
   });
   // Keyboard focus moves the selection too, so the underline and the focus ring never mark two rows.
-  below.addEventListener('focusin', e => {
+  below.addEventListener('focusin', (e) => {
     const a = (e.target as Element).closest<HTMLAnchorElement>('.item');
     const i = a ? shown().indexOf(a) : -1;
     if (i >= 0 && i !== sel) select(i);
   });
-  below.addEventListener('focusout', e => {
+  below.addEventListener('focusout', (e) => {
     const to = e.relatedTarget as Node | null;
     if (!below.contains(to) && to !== box && !box.value.trim()) select(-1);
   });
   // The mouse moves the same selection the arrows do, so only one title is ever underlined.
-  below.addEventListener('pointermove', e => {
+  below.addEventListener('pointermove', (e) => {
     if (e.pointerType !== 'mouse' || (e.clientX === px && e.clientY === py)) return;
     px = e.clientX;
     py = e.clientY;

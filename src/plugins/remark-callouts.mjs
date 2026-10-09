@@ -38,10 +38,11 @@ export default function remarkCallouts() {
       if ((node.type === 'textDirective' || node.type === 'leafDirective') && parent && index !== undefined) {
         const marker = node.type === 'textDirective' ? ':' : '::';
         const text = { type: 'text', value: marker + node.name };
-        const label = node.children.length ? [{ type: 'text', value: '[' }, ...node.children, { type: 'text', value: ']' }] : [];
-        const replacement = node.type === 'textDirective'
-          ? [text, ...label]
-          : [{ type: 'paragraph', children: [text, ...label] }];
+        const label = node.children.length
+          ? [{ type: 'text', value: '[' }, ...node.children, { type: 'text', value: ']' }]
+          : [];
+        const replacement =
+          node.type === 'textDirective' ? [text, ...label] : [{ type: 'paragraph', children: [text, ...label] }];
         parent.children.splice(index, 1, ...replacement);
         return index + replacement.length;
       }

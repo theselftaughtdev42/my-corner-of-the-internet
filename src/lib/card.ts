@@ -29,7 +29,12 @@ export type Card = {
 };
 
 type Node = { type: string; props: Record<string, unknown> };
-const h = (type: string, style: Record<string, unknown>, children?: unknown, extra: Record<string, unknown> = {}): Node => ({
+const h = (
+  type: string,
+  style: Record<string, unknown>,
+  children?: unknown,
+  extra: Record<string, unknown> = {},
+): Node => ({
   type,
   props: { style, children, ...extra },
 });
@@ -55,7 +60,7 @@ let logo: Promise<string> | undefined;
 function loadLogo() {
   logo ??= fs
     .readFile(path.join(process.cwd(), 'public/assets/logo_light.svg'), 'utf8')
-    .then(svg => svgData(svg.replace(/fill:\s*#1f2128/i, `fill: ${FG}`)));
+    .then((svg) => svgData(svg.replace(/fill:\s*#1f2128/i, `fill: ${FG}`)));
   return logo;
 }
 
@@ -66,7 +71,13 @@ export async function renderCard(card: Card) {
         'div',
         { display: 'flex', marginRight: 28 },
         Array.from({ length: card.bars.count }, (_, i) =>
-          h('div', { width: 44, height: 6, borderRadius: 3, marginRight: i < card.bars!.count - 1 ? 8 : 0, background: i + 1 === card.bars!.current ? ORANGE : BAR }),
+          h('div', {
+            width: 44,
+            height: 6,
+            borderRadius: 3,
+            marginRight: i < card.bars!.count - 1 ? 8 : 0,
+            background: i + 1 === card.bars!.current ? ORANGE : BAR,
+          }),
         ),
       )
     : null;
@@ -83,16 +94,33 @@ export async function renderCard(card: Card) {
         ]),
         h(
           'div',
-          { display: 'flex', fontSize: size, fontWeight: 700, lineHeight: 1.15, letterSpacing: '-0.02em', color: FG, maxWidth: 1000 },
+          {
+            display: 'flex',
+            fontSize: size,
+            fontWeight: 700,
+            lineHeight: 1.15,
+            letterSpacing: '-0.02em',
+            color: FG,
+            maxWidth: 1000,
+          },
           card.title,
         ),
-        h('div', { display: 'flex', alignItems: 'center', fontSize: 28, color: MUTED, minHeight: 42 }, [bars, card.footer ?? ''].filter(Boolean)),
+        h(
+          'div',
+          { display: 'flex', alignItems: 'center', fontSize: 28, color: MUTED, minHeight: 42 },
+          [bars, card.footer ?? ''].filter(Boolean),
+        ),
       ]);
 
-  const svg = await satori(h('div', { display: 'flex', width: W, height: H, padding: 72, background: BG, fontFamily: 'Poppins' }, [body]) as never, {
-    width: W,
-    height: H,
-    fonts: await loadFonts(),
-  });
+  const svg = await satori(
+    h('div', { display: 'flex', width: W, height: H, padding: 72, background: BG, fontFamily: 'Poppins' }, [
+      body,
+    ]) as never,
+    {
+      width: W,
+      height: H,
+      fonts: await loadFonts(),
+    },
+  );
   return new Resvg(svg, { fitTo: { mode: 'width', value: W } }).render().asPng();
 }

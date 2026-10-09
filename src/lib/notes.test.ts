@@ -13,7 +13,7 @@ let entries: Fake[] = [];
 
 vi.mock('astro:content', () => ({
   getCollection: async (_name: string, filter?: (n: unknown) => boolean) => {
-    const notes = entries.map(e => ({
+    const notes = entries.map((e) => ({
       id: e.id,
       collection: 'notes',
       data: {
@@ -76,10 +76,10 @@ describe('getLibrary', () => {
       { id: 'learn/one', created: '2024-04-01', series: 'Learning', part: 1 },
       { id: 'cs/one', created: '2024-01-01', series: 'CS', part: 1 },
     ]);
-    expect(lib.notes.map(n => n.id)).toEqual(['learn/two', 'learn/one', 'alone', 'cs/one']);
-    expect(lib.standalone.map(n => n.id)).toEqual(['alone']);
+    expect(lib.notes.map((n) => n.id)).toEqual(['learn/two', 'learn/one', 'alone', 'cs/one']);
+    expect(lib.standalone.map((n) => n.id)).toEqual(['alone']);
     // Series come in the order they began.
-    expect(lib.series.map(s => [s.slug, s.name, s.notes.map(n => n.id)])).toEqual([
+    expect(lib.series.map((s) => [s.slug, s.name, s.notes.map((n) => n.id)])).toEqual([
       ['cs', 'CS', ['cs/one']],
       ['learn', 'Learning', ['learn/one', 'learn/two']],
     ]);
@@ -90,7 +90,7 @@ describe('getLibrary', () => {
       { id: 'live', created: '2024-01-01' },
       { id: 'draft', created: '2024-01-02', draft: true },
     ]);
-    expect(lib.notes.map(n => n.id)).toEqual(['live']);
+    expect(lib.notes.map((n) => n.id)).toEqual(['live']);
   });
 
   it('shows drafts while developing', async () => {
@@ -99,7 +99,7 @@ describe('getLibrary', () => {
       { id: 'live', created: '2024-01-01' },
       { id: 'draft', created: '2024-01-02', draft: true },
     ]);
-    expect(lib.notes.map(n => n.id)).toEqual(['draft', 'live']);
+    expect(lib.notes.map((n) => n.id)).toEqual(['draft', 'live']);
   });
 
   it('reads the notes once', async () => {
@@ -113,12 +113,26 @@ describe('getLibrary', () => {
       { id: 'alone', created: '2024-01-01' },
       { id: 'learn/one', created: '2024-01-02', series: 'Learning', part: 1 },
     ]);
-    expect(seriesOf(lib, lib.notes.find(n => n.id === 'learn/one')!)?.slug).toBe('learn');
-    expect(seriesOf(lib, lib.notes.find(n => n.id === 'alone')!)).toBeUndefined();
+    expect(
+      seriesOf(
+        lib,
+        lib.notes.find((n) => n.id === 'learn/one')!,
+      )?.slug,
+    ).toBe('learn');
+    expect(
+      seriesOf(
+        lib,
+        lib.notes.find((n) => n.id === 'alone')!,
+      ),
+    ).toBeUndefined();
   });
 
   it.each<[string, Fake[], RegExp]>([
-    ['a series note outside a folder', [{ id: 'one', created: '2024-01-01', series: 'S', part: 1 }], /belongs in that series' folder/],
+    [
+      'a series note outside a folder',
+      [{ id: 'one', created: '2024-01-01', series: 'S', part: 1 }],
+      /belongs in that series' folder/,
+    ],
     ['a note in a folder with no series', [{ id: 'learn/one', created: '2024-01-01' }], /needs "series" and "part"/],
     [
       'two series in one folder',
