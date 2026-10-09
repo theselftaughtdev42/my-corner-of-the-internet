@@ -27,8 +27,6 @@ Imagine walking up to your front door. You pull the door open only to find yours
 
 Sitting on your couch is a huge black and white cow! (This represents the milk.) It's even sitting like a human would. What sounds might it be making? Can you smell the fresh cow pats? Your presence frightens the cow and it begins throwing eggs at you in defiance. You can feel the eggs smashing and cracking against your body and even feel the egg white dripping down your face.
 
-![A cow sitting on a sofa throwing eggs at you.](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/learning/cow-throwing-eggs.webp)
-
 I hope you get the idea. Identify anchor points in your memory palace to attach creative images to. In this example I only used two anchor points: the front door and the couch. As you need to remember more things you just increase the journey around your memory palace, adding items to specific anchor points. Some people get really creative with anchor points. I have read about people using their wallets and using each corner of each bank card used as an anchor for different information!
 
 ## Memorable Sentences

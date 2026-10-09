@@ -22,8 +22,6 @@ If you don't get this joke now, you will by the end of this article.
 
 Many people find binary intimidating, but it's simpler than you think. If you can count, then you can read binary. Today, we will break down this problem by reviewing how we understand numbers and then applying that same logic to binary.
 
-![An abstract painting interweaving technology with swirling clouds.](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/computing-fundamentals/binary.webp)
-
 ## Decimal System
 In everyday life, when we count we typically use the decimal numbering system. In this system, a single digit is often referred to as a unit:
 

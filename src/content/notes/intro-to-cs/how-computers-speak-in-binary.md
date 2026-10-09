@@ -38,8 +38,6 @@ That is a great point. Thanks for speaking up.
 
 To solve this problem we create agreements. For example, when a computer is storing text it follows a standard that says the binary number `1100001` represents the letter `a`, the binary number `1100010` represents the letter `b` and so forth. Once such agreement is [ASCII](https://en.wikipedia.org/wiki/ASCII). Different types of data (audio, video etc) have their own agreements so that a computer can understand what the binary being stored represents.
 
-![A digital photo being taken of a beautiful countryside](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/computing-fundamentals/digital-photograph.webp)
-
 ## Measuring Data Storage
 A single byte is an extremely small unit of storage. You could use it to store a small number or a single character. So it quickly becomes necessary to use a naming standard for large numbers of bytes.
 

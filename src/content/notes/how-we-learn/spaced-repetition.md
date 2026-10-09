@@ -38,8 +38,6 @@ If you do nothing else, the grass will straighten, the infant pathway you made w
 
 But being the clever sausage that you are, you recognise this. Just as the pathway is beginning to fade, you venture out to the box — you recall the information. This act, combined with the first, strengthens the pathway. It'll now take longer before the pathway disappears.
 
-![An image of a man walking a dirt pathway through an overgrown field.](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/learning/meadow-with-track.webp)
-
 You repeat this process. Systematically venturing out to the box — recalling the information. Increasing the time between each trip. Until you have a dirt track. A clear pathway that is so easy to follow you can do it subconsciously. But there's a catch. If that dirt track is never walked again, it will eventually return to an overgrown field. It'll just take a long time.
 
 Thus, we have the forgetting curve. Each time we recall a piece of information, we are strengthening the _neural pathways_ in our brain and lengthening the time before those pathways are overgrown and the information forgotten.

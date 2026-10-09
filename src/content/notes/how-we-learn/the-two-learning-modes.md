@@ -16,8 +16,6 @@ Your brain has two primary "modes" and most people don't realise just how import
 ## Focused
 This mode is pretty self-explanatory: when you are intently studying (reading, listening, watching, doing) then your brain has engaged its _Focused_ mode. You have a narrow focus and you are detail-oriented. This kind of tunnel vision is essential for understanding new information. Your brain acknowledges and grapples with it.
 
-![A woman reading intently in a library.](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/learning/lady-reading.webp)
-
 :::info[Embrace Confusion]
 New information — especially in a new area of interest — will bring a natural level of confusion with it. Your brain doesn't have any pre-existing neural pathways to guide your thought process. _Focused_ mode on its own can only get you so far. This is where Diffuse mode comes in.
 :::

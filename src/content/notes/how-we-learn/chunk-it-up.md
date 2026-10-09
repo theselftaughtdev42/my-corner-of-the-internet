@@ -31,8 +31,6 @@ Going back to the reading example, we progress from reading letters, to reading 
 
 This is the end goal: for the information we are studying to become second nature. Your brain is going to chunk the information whether you consciously help it or not. Might as well lend a hand, right?
 
-![A puzzle coming together piece by piece.](https://raw.githubusercontent.com/simplytim42/turbo-umbrella/refs/heads/main/tstd/learning/puzzle.webp)
-
 ## The Best Way to Create a Chunk
 ### Focus
 Engage [Focus Mode](/notes/how-we-learn/the-two-learning-modes/#focused)! You start by focusing intentionally on the information you are learning. Actively minimise distractions.
