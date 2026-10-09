@@ -11,7 +11,12 @@ npm install
 npm run dev       # live preview at http://localhost:4321 (drafts show here; search covers titles only)
 npm run build     # type-check, build into dist/ and index the notes for search
 npm run preview   # serve dist/, with full-text search
+npm test          # unit tests
+npm run lint      # ESLint (lint:fix to fix what it can)
+npm run format    # Prettier (format:check only checks)
 ```
+
+A pre-commit hook lints and formats the files you've staged.
 
 ## Writing a note
 Copy `templates/note.md` into `src/content/notes/`. A note in a series goes in the series' folder
@@ -26,4 +31,4 @@ note's front matter, so a typo fails the build instead of quietly dropping a not
 
 ## Publishing
 Every push to `main` builds the site and publishes it to the `gh-pages` branch, which GitHub Pages serves.
-Pull requests run the same build as a check.
+Pull requests run the lint, format check, unit tests and build as checks.
