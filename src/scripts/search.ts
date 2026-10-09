@@ -4,14 +4,8 @@
 //
 // Matches come from Pagefind's index of the built site (made by `npm run build`). Where that index isn't
 // there, as under `npm run dev`, titles, descriptions and series names are searched instead.
+import { byBestMatch, esc, findInList, highlight, pagePath, snippet, terms, type Hit } from './search-match';
 import { FROM_KEY } from './site';
-
-interface Hit {
-  url: string;
-  score: number;
-  /** Pagefind's excerpt, HTML with the matches in <mark>. */
-  excerpt?: string;
-}
 
 interface Pagefind {
   options(o: object): Promise<void>;
@@ -27,21 +21,7 @@ const msg = document.querySelector<HTMLElement>('.msg');
 
 if (box && list && rest && below && msg) {
   const $$ = <T extends Element>(sel: string, root: ParentNode) => Array.from(root.querySelectorAll<T>(sel));
-  const esc = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
   const plural = (n: number, w: string) => `${n} ${w}${n === 1 ? '' : 's'}`;
-  const path = (url: string) => {
-    const p = new URL(url, location.origin).pathname.replace(/index\.html$/, '');
-    return p.endsWith('/') ? p : `${p}/`;
-  };
-
-  const terms = (q: string) =>
-    (q || '').toLowerCase().split(/\s+/).map(t => t.replace(/^[^\w~/]+|[^\w]+$/g, '')).filter(Boolean);
-
-  function hl(text: string, ts: string[]) {
-    if (!ts.length) return esc(text);
-    const re = new RegExp(`(${ts.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'ig');
-    return text.split(re).map((part, i) => (i % 2 ? `<mark>${esc(part)}</mark>` : esc(part))).join('');
-  }
 
   /* ---------- Finding matches ---------- */
   let pagefind: Promise<Pagefind | null> | null = null;
@@ -60,30 +40,20 @@ if (box && list && rest && below && msg) {
   async function findWithPagefind(pf: Pagefind, q: string): Promise<Hit[]> {
     const { results } = await pf.search(q);
     const data = await Promise.all(results.slice(0, 40).map(r => r.data()));
-    return data.map((d, i) => ({ url: path(d.url), score: data.length - i, excerpt: d.excerpt }));
+    return data.map((d, i) => ({ url: pagePath(d.url, location.origin), score: data.length - i, excerpt: d.excerpt }));
   }
 
-  function findInList(q: string): Hit[] {
-    const ts = terms(q);
-    const out: Hit[] = [];
-    for (const li of $$<HTMLElement>('.li', list!)) {
-      const title = (li.dataset.title || '').toLowerCase();
-      const desc = (li.dataset.description || '').toLowerCase();
-      const series = (li.dataset.series || 'standalone').toLowerCase();
-      let score = 0;
-      for (const t of ts) {
-        const s = title.includes(t) ? 10 : desc.includes(t) ? 4 : series.includes(t) ? 3 : 0;
-        if (!s) { score = 0; break; }
-        score += s;
-      }
-      if (score) out.push({ url: li.dataset.url!, score });
-    }
-    return out.sort((a, b) => b.score - a.score);
-  }
+  const listed = () =>
+    $$<HTMLElement>('.li', list!).map(li => ({
+      url: li.dataset.url!,
+      title: li.dataset.title || '',
+      description: li.dataset.description || '',
+      series: li.dataset.series,
+    }));
 
   async function find(q: string) {
     const pf = await loadPagefind();
-    return pf ? findWithPagefind(pf, q) : findInList(q);
+    return pf ? findWithPagefind(pf, q) : findInList(q, listed());
   }
 
   /* ---------- Showing them ---------- */
@@ -115,11 +85,7 @@ if (box && list && rest && below && msg) {
     return a ? `Enter opens ${a.querySelector('.t')!.textContent}.` : '';
   };
 
-  function snippet(li: HTMLElement, ts: string[], hit: Hit) {
-    const desc = li.dataset.description || '';
-    if (terms(desc).some(w => ts.some(t => w.includes(t)))) return hl(desc, ts);
-    return hit.excerpt || esc(desc);
-  }
+  const rank = (g: HTMLElement) => ({ best: Number(g.dataset.best), place: Number(g.dataset.g) });
 
   let latest = 0;
   async function filter(q: string) {
@@ -137,9 +103,9 @@ if (box && list && rest && below && msg) {
       for (const li of $$<HTMLElement>('.li', g)) {
         const hit = hits.get(li.dataset.url!);
         li.hidden = !!res && !hit;
-        li.querySelector('.t')!.innerHTML = hit ? hl(li.dataset.title || '', ts) : esc(li.dataset.title || '');
+        li.querySelector('.t')!.innerHTML = hit ? highlight(li.dataset.title || '', ts) : esc(li.dataset.title || '');
         const d = li.querySelector<HTMLElement>('.d')!;
-        d.innerHTML = hit ? snippet(li, ts, hit) : '';
+        d.innerHTML = hit ? snippet(li.dataset.description || '', ts, hit) : '';
         d.hidden = !hit;
         if (hit) best = Math.max(best, hit.score);
       }
@@ -147,7 +113,7 @@ if (box && list && rest && below && msg) {
       g.dataset.best = String(best);
     }
     groups
-      .sort((a, b) => Number(b.dataset.best) - Number(a.dataset.best) || Number(a.dataset.g) - Number(b.dataset.g))
+      .sort((a, b) => byBestMatch(rank(a), rank(b)))
       .forEach(g => list!.appendChild(g));
     list!.classList.toggle('is-found', !!res);
     let top = -1;
