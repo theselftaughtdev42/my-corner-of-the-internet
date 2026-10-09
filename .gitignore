@@ -12,3 +12,7 @@ dist
 # caches
 .cache
 __pycache__
+
+# Vale styles are downloaded by `vale sync`; only our own config is kept.
+.vale/styles/*
+!.vale/styles/config/

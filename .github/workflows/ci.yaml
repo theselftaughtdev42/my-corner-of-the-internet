@@ -21,6 +21,10 @@ jobs:
       - name: Lint the code
         run: npm run lint
 
+      # Vale's styles were downloaded by `npm ci`. Only errors fail the check.
+      - name: Check the prose
+        run: npm run lint:prose
+
       - name: Check the code is formatted
         run: npm run format:check
 
