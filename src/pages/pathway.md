@@ -33,7 +33,7 @@ _Every resource in this stage is independent and can be completed at any time._
 
 ### Agile
 - [x] Scrum: The Art of Doing Twice the Work in Half the Time <span class="kind">Book</span>
-- [ ] Accelerate: The Science of Lean Software and Devops <span class="kind">Book</span>
+- [ ] Accelerate: The Science of Lean Software and DevOps <span class="kind">Book</span>
 
 ### Leadership
 - [ ] High Output Management <span class="kind">Book</span>

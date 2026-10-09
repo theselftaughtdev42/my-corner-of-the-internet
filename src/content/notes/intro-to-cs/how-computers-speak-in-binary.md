@@ -16,7 +16,7 @@ Ever wondered how your computer speaks its own language? This article guides you
 ### The Smallest Bit
 A 'bit' is the smallest unit of data that a computer can store. It represents a binary state. The easiest way to understand this is that a bit can be either a `1` or a `0`.
 
-But a single bit on its own can only represent two data points: `1` or `0`. In order for a computer to make use of data, it needs more capacity. The more bits we combine together, the more unique values we can use and therefore the greater our capacity to represent data.
+But a single bit on its own can only represent two data points: `1` or `0`. In order for a computer to make use of data, it needs more capacity. The more bits we combine together, the more distinct values we can use and therefore the greater our capacity to represent data.
 The mathematical rule is _n-bits has 2<sup>n</sup> unique values_:
 
 1-bit makes 2 unique values: `0` & `1`
@@ -41,7 +41,7 @@ To solve this problem we create agreements. For example, when a computer is stor
 ## Measuring Data Storage
 A single byte is an extremely small unit of storage. You could use it to store a small number or a single character. So it quickly becomes necessary to use a naming standard for large numbers of bytes.
 
-You've likely heard of the term 'kilobyte' before. The prefix 'kilo' is traditionally used to represent 10<sup>3</sup> (10 x 10 x 10 or 1000) as in 'kilometre' and 'kilogram'. For computers, this means a kilobyte should be 1000 bytes…actually it is _roughly_ 1000 bytes.
+You've likely heard of the term 'kilobyte' before. The prefix 'kilo' is traditionally used to represent 10<sup>3</sup> (10 × 10 × 10 or 1000) as in 'kilometre' and 'kilogram'. For computers, this means a kilobyte should be 1000 bytes…actually it is _roughly_ 1000 bytes.
 
 :::question[What do you mean 'roughly'?]
 This bit can get confusing (pun intended 😏) and does involve a some maths. Because computers are binary beasts, they work best with numbers that are a power of 2. As a result we bend the naming rules a bit. The nearest number to a thousand that is also a power of 2 is 2<sup>10</sup> which is 1,024. Which is why 1 kilobyte = 1,024 bytes.
