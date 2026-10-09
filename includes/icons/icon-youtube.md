@@ -1,1 +1,0 @@
-:simple-youtube:{ title="YouTube Playlist or Video" }

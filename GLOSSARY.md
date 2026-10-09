@@ -1,8 +1,15 @@
 # My Corner of the Internet
 
-A personal site of blog posts and wiki articles, where readers should be able to tell which images were made by a generative model.
+A personal site of notes, where readers should be able to tell which images were made by a generative model.
 
 ## Language
+
+**Note**:
+Anything written for the site. A note either stands alone or is part of a series.
+_Avoid_: blog post, wiki page, guide, essay
+
+**Series**:
+Notes meant to be read in order, each with a part number. A series is dated by its newest note.
 
 **AI image**:
 A raster image whose pixels were substantially produced by a generative model, whether or not it was edited afterwards. Diagrams, logos and avatars are not AI images.

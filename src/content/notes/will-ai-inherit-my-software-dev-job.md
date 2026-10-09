@@ -1,0 +1,74 @@
+---
+title: Will Artificial Intelligence Inherit My Software Dev Job?
+description: Could AI evolve from an assistant to a full-fledged software developer, potentially replacing human coders?
+date:
+  created: 2024-02-08
+tags:
+- ai
+- disruption
+- innovation
+- future
+- career
+---
+
+During the summer of 2018, as is common in the military, I was assigned a new role that required rapid skill development to be done by last Friday. As is not so common in the military, that skill was coding; and I was instantly hooked 🤓
+
+Work wasn't "work" anymore: it was adventure; it was exploration; it was discovery. I fondly remember the penny-drop moment when I wrote some code that looped and printed a statement ten-thousand times in an instant! The potential was exhilarating.
+
+## The Advent of AI in Coding
+
+There were two significant moments when I realised change was on the doorstep:
+
+1. A demo in 2022 of an early version of Github Copilot. You typed what you wanted the code to do and then watched as it magically generated before your eyes. I remember thinking that we had automated away the fun part of coding. Ironically, I have grown to love Github Copilot and often use it as an autocomplete for my thought process 🤫 But it does still fall over with new features of languages/frameworks — AI is only as up-to-date as its training data.
+
+2. The first time I held a technical conversation with ChatGPT and the weight of what that meant. It helped me understand a new concept I was grappling with. I was able to validate my comprehension (or lack thereof) by repeating the concept back in my own words and having ChatGPT confirm or correct my understanding.
+
+## Contemplating the "Near" Future
+
+This all leads to the question on my mind: _if Artificial Intelligence can be so good at technical creation in this early stage, will it eventually inherit my job of actually writing code?_
+
+I don't actually know the answer to this. I'm not sure anyone does...yet. If the past has taught us anything it's that the future is hard to predict. But I think it's important to contemplate potential outcomes.
+
+In the next few years, Artificial Intelligence could take on a role comparable to an aircraft's autopilot system: it'll do most of the heavy lifting but won't be trusted to do it unconditionally. Pilots in aircraft often do very little actual flying. They usually control take-off and landing. Then for the rest of the flight they monitor, make adjustments if required and — most importantly — are fully trained to take control in case of emergencies.
+
+A day in my future dev-life might look like this:
+
+1. Tell AI to generate feature X to solve problem Y
+1. Look over generated code — and its related unit tests, of course — to verify it works as intended. If not, adjust and repeat step 1 ⚠️ _potential infinite loop for a stubborn mind_ ⚠️
+1. If all is well, merge code into codebase
+1. If all is not well, oil programming hinges and put fingers to keyboard like I did in the good old days. Maybe ask ChatGPT to help...ahem
+
+The human will have moved from a person who creates, to a person who guides: mastering the art of leveraging AI to generate vast quantities of code that integrates into the existing codebase. Teams could end up moving at a pace we can only dream of currently.
+
+## More Than Just a Coder
+
+However, it’s so easy to get caught up in what AI can do that I sometimes can’t see the forest for the trees. The best coders write very little code. Some of the most important skills a developer can have are uniquely human.
+
+For a lot of companies, the developers have to engage with end-users, elicit their problems, empathise with their situations and discover creative, bespoke solutions to their needs. There are times when customers don’t fully know what they need, and it requires discernment to separate the wheat from the chaff.
+
+Developers communicate complex technical concepts and their business value to non-technical stakeholders; this may serve as the critical determining factor for the allocation of funds.
+
+Consider solutions and implementations that are the result of two humans chatting casually about what they’re doing — the old “watercooler effect”. These situations are founded on the coming together of two different beings, often with drastically different outlooks on life. My music-teacher wife often provides a perspective on a problem that I hadn’t even considered.
+
+What about leadership? Mentoring junior developers and onboarding new members of a team are obvious examples of leadership. But the developer who consistently includes general refactorings into their workload understands the value of quiet leadership — the kind that might get overlooked. They do it anyway because technical debt can strangle a project.
+
+The role of a developer is rooted in technical skills, but it's the soft skills that bolster a team and keep business goals and technology aligned. AI is currently great at the former, but not so much the latter.
+
+## Ethical Considerations and Innovation
+But what about further into the future? When AI can be creative intentionally, instead of [on the back of hallucinations](https://www.smartcompany.com.au/technology/artificial-intelligence/openai-ceo-sam-altman-ai-hallucinations/). When it can generate production-ready code consistently and communicate clearly to stakeholders. Could devs be out of a job? 🧐
+
+[These game developers](https://finance.yahoo.com/news/game-being-made-ai-worried-134537455.html) are already pushing the limits of what AI can do. And my gut tells me that some companies will push it to the extreme. If there is a buck to be made someone will want to be the first to prove it.  Let's look at some possible consequences if this happened across the industry.
+
+Programming languages have "Core Devs": teams of people who maintain, update and improve the programming languages themselves. Their most important job is implementing security patches. They also fix bugs, improve usability etc. If AI inherits developer jobs, maybe it will inherit the job of a core dev too. Being responsible for the very code that it generates. Can AI be held responsible? 🤨
+
+Maybe AI will do away with the need for programming languages and default to writing [machine code](https://en.wikipedia.org/wiki/Machine_code). Arguably, all languages are designed to be human-readable and add overhead as a result. If a human doesn't need to read it, then why bother? You'll get more efficient code.
+
+_I hope this **never** happens — no matter the autonomy given to a system, we should always be able to verify what it's doing and why._
+
+How will innovation fare? Innovation is usually driven by determined people who are convinced they know how and why something needs to change. They often face large amounts of push back until the world either accepts the inevitable or gets onboard with the idea. Could AI innovations be as impactful as the lightbulb, the telephone or the internet?
+
+Maybe human innovation will flourish! There might be a world ahead of us where AI takes on so much of the mundane that humans are freed from the repetitive and empowered to innovate full-time. My job as a dev would be one of AI-empowered innovation.
+
+The future is a mystery. Questions abound more than answers. This may always be the case. How AI will change my role as a software developer is up for debate. I hope the changes feel like improvements to those it affects.
+
+Either way, I'm excited to see what happens.

@@ -1,0 +1,342 @@
+/* =========================================================
+   The Self-Taught Dev
+   One centre axis for every page. Three type sizes: 14 (small), 17 (text), 36 (titles; 28 on a phone).
+   One grey: full strength for muted text, mixed into the ground for lines, bars and the box edge.
+   Orange is only for the brandmark, the current series bar and link underlines inside notes.
+   ========================================================= */
+:root {
+  --sans: 'Poppins', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --accent: #FF7F29;
+  --warn: #FFC529;
+  --danger: #FF5A29;
+  --bg: #FFFFFF;
+  --fg: #1F2128;
+  --muted: #63666F;
+  --line: color-mix(in srgb, var(--muted) 18%, var(--bg));
+  --line-strong: color-mix(in srgb, var(--muted) 55%, var(--bg));
+  --edge: color-mix(in srgb, var(--muted) 70%, var(--bg));
+  --bar: color-mix(in srgb, var(--muted) 32%, var(--bg));
+  --code-bg: color-mix(in srgb, var(--muted) 10%, var(--bg));
+  --plate: #FFFFFF;
+  /* Orange text fails contrast on white, so text links take a deeper orange there. */
+  --accent-text: #B34A08;
+  --w: 600px;
+  --pad: 32px;
+  --s: 14px;
+  --m: 17px;
+  --l: 36px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1F2128;
+    --fg: #F4F4F4;
+    --muted: #A3A6B0;
+    --line-strong: color-mix(in srgb, var(--muted) 50%, var(--bg));
+    --edge: color-mix(in srgb, var(--muted) 56%, var(--bg));
+    --bar: color-mix(in srgb, var(--muted) 30%, var(--bg));
+    --code-bg: color-mix(in srgb, var(--muted) 12%, var(--bg));
+    --plate: #F4F4F4;
+    --accent-text: #FF7F29;
+    color-scheme: dark;
+  }
+}
+@media (max-width: 640px) {
+  :root { --pad: 20px; --l: 28px; }
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+[hidden] { display: none !important; }
+img { max-width: 100%; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-weight: 700; }
+button, input { font-family: inherit; }
+:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+mark { background: none; color: inherit; font-weight: 700; padding: 0; }
+.nowrap { white-space: nowrap; }
+.vh { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.skip { position: absolute; left: 16px; top: -100px; z-index: 10; padding: 8px 14px; border-radius: 8px; background: var(--fg); color: var(--bg); font-size: var(--s); text-decoration: none; }
+.skip:focus { top: 12px; }
+
+/* ---------- Header (every page but Home) ----------
+   Two equal 44px slots, the brandmark and the search icon, with the ~ path centred between them. */
+.head { display: flex; align-items: flex-start; gap: 4px; padding: 10px 14px 10px 16px; }
+.head-mark, .head-find { flex: none; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 8px; }
+.head-mark { color: var(--fg); }
+.head-mark svg { width: 20px; height: 20px; display: block; }
+.head-find { color: var(--muted); }
+.head-find svg { width: 18px; height: 18px; display: block; }
+/* The path fills each line before it wraps (so a note's name starts the second line on a phone); a name
+   too long for a line of its own wraps inside, in balanced lines. */
+.path { flex: 1 1 auto; min-width: 0; padding-top: 10px; text-align: center; font: 400 var(--s)/24px var(--mono); color: var(--muted); }
+.path ol { display: inline; margin: 0; padding: 0; list-style: none; }
+.path li { display: inline-block; max-width: 100%; overflow-wrap: anywhere; text-wrap: balance; }
+.path a { color: inherit; text-decoration: none; }
+.path [aria-current] { color: var(--fg); }
+.path .sl { padding: 0 .1em; }
+
+/* ---------- Main column ---------- */
+.main { flex: 1 0 auto; width: 100%; max-width: calc(var(--w) + 2 * var(--pad)); margin: 0 auto; padding: 0 var(--pad); }
+
+/* Home: the full logo at the top centre, 350px wide (the brand book's minimum for a large screen; 200px on
+   a phone, where the minimum is 150px), the tagline, the box, then the lists at the box's width. */
+.home { padding-block: 96px; }
+.hero { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.logo { margin: 0; color: var(--fg); line-height: 0; }
+.logo svg { display: block; width: 350px; max-width: 100%; height: auto; aspect-ratio: 805.33 / 140.97; }
+/* The tagline is the one line of copy on Home, a step up from the text size. */
+.tagline { margin: 24px 0 0; font-size: 20px; line-height: 1.5; color: var(--fg); }
+/* The input is the whole box, so a click anywhere in it (the icon too) puts the cursor in it. */
+.field { position: relative; width: 100%; margin-top: 36px; color: var(--muted); }
+.field svg { position: absolute; left: 18px; top: 50%; width: 18px; height: 18px; margin-top: -9px; pointer-events: none; }
+.q {
+  display: block;
+  width: 100%;
+  height: 56px;
+  margin: 0;
+  padding: 0 10px 0 48px;
+  border: 1px solid var(--edge);
+  border-radius: 12px;
+  background: transparent;
+  outline: none;
+  font: 400 var(--m) var(--sans);
+  color: var(--fg);
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: text;
+}
+.q:focus { border-color: var(--fg); box-shadow: inset 0 0 0 1px var(--fg); }
+.q::placeholder { color: var(--muted); opacity: 1; }
+/* The browser's own clear button: a grey ×, only while there is text, with room for a thumb. */
+.q::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 36px;
+  height: 36px;
+  background: var(--muted);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 3.5l9 9m0-9l-9 9' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center / 14px 14px no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 3.5l9 9m0-9l-9 9' stroke='black' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E") center / 14px 14px no-repeat;
+  cursor: pointer;
+}
+.status { margin: 0; }
+.msg { display: block; margin-top: 28px; font-size: var(--m); line-height: 1.6; color: var(--muted); overflow-wrap: anywhere; }
+.msg:empty { display: none; }
+.below { margin-top: 64px; }
+
+/* Lists, the same on every page: a bold heading, then rows with the name on the left and one quiet value
+   on the right (a date, or a series' bars and date), and a note's description or snippet under them.
+   Space alone separates the groups: no rules. */
+.sec + .sec, .group + .group { margin-top: 48px; }
+.sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+.sec-head, .gname { margin: 0; padding-bottom: 4px; }
+.sname, .gname { font-size: var(--m); line-height: 1.6; letter-spacing: 0; }
+.sname { margin: 0; }
+.gname a { color: inherit; text-decoration: none; }
+.all { font-size: var(--s); line-height: 1.6; color: var(--muted); text-decoration: none; }
+.rows, .items { list-style: none; margin: 6px 0 0; padding: 0; }
+.row { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 24px; align-items: baseline; padding: 9px 0; color: var(--fg); text-decoration: none; font-size: var(--m); }
+.row .t { line-height: 1.45; text-wrap: pretty; }
+.v { font-size: var(--s); line-height: 1.45; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.d { grid-column: 1 / -1; margin-top: 4px; max-width: 34em; font-size: var(--s); line-height: 1.6; color: var(--muted); text-wrap: pretty; }
+.rich .row { padding: 12px 0; }
+/* A series' bars in its value, the same size as a note's bars under its title. They stand in for the
+   number of notes, so they take the box edge's grey (3:1) rather than the paler bar grey. */
+.sbars { display: inline-flex; gap: 4px; margin-right: 12px; vertical-align: middle; }
+.sbars span { width: 22px; height: 3px; border-radius: 2px; background: var(--edge); }
+.item.is-sel .t { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+/* While searching, the matches take the lists' place, grouped the same way, each with a snippet (at most three lines). */
+.list.is-found .d { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 3; line-clamp: 3; overflow: hidden; }
+
+/* ---------- Inner pages: a centred title under the centred path, then text in the column ---------- */
+.page { padding-top: 40px; padding-bottom: 104px; }
+.title { text-align: center; margin-bottom: 56px; }
+.h1 { margin: 0; font-size: var(--l); line-height: 1.2; letter-spacing: -.02em; text-wrap: balance; }
+.intro { margin: -16px 0 52px; text-align: center; font-size: var(--m); line-height: 1.7; color: var(--muted); text-wrap: balance; }
+
+/* One line of detail under a title: a series' bars, the part and the date. */
+.detail { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 0 14px; margin-top: 12px; font-size: var(--s); line-height: 24px; color: var(--muted); }
+.dot { padding: 0 .25em; }
+.bars { display: inline-flex; align-items: center; gap: 4px; }
+.bar { display: block; flex: none; width: 22px; padding-block: 10px; }
+.bar::before { content: ""; display: block; height: 3px; border-radius: 2px; background: var(--bar); transition: background-color .15s; }
+.bar.is-current::before { background: var(--accent); }
+.share { margin: 64px 0 0; text-align: center; font-size: var(--s); line-height: 1.6; color: var(--muted); }
+.share a { color: inherit; text-decoration: none; }
+.onward { margin-top: 48px; text-align: center; }
+.next { display: inline-grid; gap: 2px; color: var(--fg); text-decoration: none; }
+.next-k { font-size: var(--s); color: var(--muted); }
+.next-t { font-size: var(--m); font-weight: 700; line-height: 1.5; text-wrap: balance; }
+.back { font-size: var(--m); color: var(--muted); text-decoration: none; }
+
+/* About: the photo above the name, then three lines about Tim. */
+.portrait { display: block; width: 128px; height: 128px; margin: 0 auto 28px; border-radius: 50%; background: var(--code-bg); object-fit: cover; }
+.notables { list-style: none; margin: 0; padding: 0; display: grid; gap: 28px; text-align: center; font-size: var(--m); line-height: 1.7; text-wrap: balance; }
+
+/* ---------- Footer: one centred line of text. It wraps like text (balanced), so a phone gets two even lines. ---------- */
+.foot { padding: 24px var(--pad) 40px; text-align: center; text-wrap: balance; font-size: var(--s); line-height: 1.6; color: var(--muted); }
+.foot p, .links { display: inline; margin: 0; }
+.foot p { display: inline-block; margin: 0 12px; }
+.links a { display: inline-block; margin: 0 9px; color: var(--muted); text-decoration: none; }
+
+/* Hover underlines in the text colour. Phones don't hover, so they show none. On Home the mouse moves
+   the selection instead, so its list has no separate hover state. */
+@media (hover: hover) {
+  .path a:hover, .gname a:hover, .page .item:hover .t, .next:hover .next-t, .back:hover, .all:hover, .links a:hover, .share a:hover {
+    color: var(--fg);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+  }
+  .head-find:hover { color: var(--fg); }
+  a.bar:hover::before { background: var(--fg); }
+}
+
+/* ---------- Note text: keep everything, quieten the styling ---------- */
+.prose { font-size: var(--m); line-height: 1.75; overflow-wrap: break-word; }
+.prose > :first-child { margin-top: 0; }
+.prose p { margin: 0 0 1.15em; }
+.prose h2 { font-size: 24px; line-height: 1.3; letter-spacing: -.01em; margin: 2.1em 0 .5em; text-wrap: balance; }
+.prose h3 { font-size: 19px; line-height: 1.35; margin: 1.8em 0 .4em; }
+.prose h4 { font-size: var(--m); line-height: 1.5; margin: 1.6em 0 .4em; }
+.prose ul, .prose ol { margin: 0 0 1.15em; padding-left: 1.35em; }
+.prose li + li { margin-top: .35em; }
+.prose li > p { margin: 0 0 .5em; }
+.prose li::marker { color: var(--muted); }
+.prose a, .notables a { text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+.prose a:hover, .notables a:hover { color: var(--accent-text); }
+.prose code { font-family: var(--mono); font-size: .84em; background: var(--code-bg); padding: .14em .38em; border-radius: 3px; }
+.prose pre { margin: 1.6em 0; padding: 1em 1.2em; overflow-x: auto; border-radius: 6px; background: var(--code-bg); font-size: 14px; line-height: 1.6; }
+.prose pre code { padding: 0; background: none; font-size: inherit; }
+.prose abbr[title], .notables abbr[title] { text-decoration: underline dotted; text-underline-offset: 3px; cursor: help; }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.2em 0; }
+.prose sup { line-height: 0; }
+.prose .table-scroll { overflow-x: auto; margin: 1.6em 0; }
+.prose table { border-collapse: collapse; font-size: var(--s); font-variant-numeric: tabular-nums; min-width: 100%; }
+.prose th, .prose td { padding: .55em .8em; border-bottom: 1px solid var(--line); }
+/* Headers line up with their numbers (a table that sets its own alignment keeps it). */
+.prose th { font-weight: 700; border-bottom-color: var(--fg); white-space: nowrap; }
+.prose th:not([align]) { text-align: left; }
+.prose .katex math { font-family: var(--mono); font-size: 1.02em; }
+.prose p:has(> .katex:only-child) { text-align: center; margin: 1.4em 0; }
+.prose .note-source { margin-top: 2.6em; font-size: var(--s); line-height: 1.6; color: var(--muted); }
+
+/* Pictures fill the column; diagrams sit on a plain plate. In dark mode the plate is the brand off-white,
+   and the diagrams' white grounds take on its tone. */
+.fig { margin: 2.4em 0; }
+.fig figcaption { font-size: var(--s); color: var(--muted); margin-top: .6em; text-align: center; }
+.prose a.fig-frame { display: block; text-decoration: none; cursor: zoom-in; }
+.fig-picture img { display: block; width: 100%; height: auto; }
+.fig-diagram .fig-frame { width: fit-content; max-width: 100%; margin-inline: auto; padding: 18px; background: var(--plate); }
+.fig-diagram img { display: block; width: 400px; max-width: 100%; height: auto; }
+@media (prefers-color-scheme: dark) {
+  .fig-diagram img { mix-blend-mode: multiply; }
+}
+
+/* Callout boxes: a thin rule down the left, in grey (yellow for warnings, red for danger). */
+.callout { --co: var(--line-strong); margin: 2em 0; padding: 0 0 0 18px; border-left: 2px solid var(--co); }
+.callout-warning { --co: var(--warn); }
+.callout-danger { --co: var(--danger); }
+.callout-title { font-weight: 700; margin: 0 0 .2em !important; }
+.callout > :last-child { margin-bottom: 0; }
+
+/* Checklists (the Pathway): a small box per line, filled when done. */
+.prose .contains-task-list { list-style: none; padding-left: 0; }
+.prose .task-list-item { position: relative; padding-left: 1.7em; }
+.prose .task-list-item input {
+  position: absolute;
+  left: 0;
+  top: .4em;
+  width: 15px;
+  height: 15px;
+  margin: 0;
+  border: 1.5px solid var(--edge);
+  border-radius: 3px;
+  background: transparent;
+  -webkit-appearance: none;
+  appearance: none;
+}
+.prose .task-list-item input:checked { border-color: var(--fg); background: var(--fg) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat; }
+@media (prefers-color-scheme: dark) {
+  .prose .task-list-item input:checked { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.5 8.5l3 3 6-7' fill='none' stroke='%231F2128' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"); }
+}
+.prose .kind { margin-left: .5em; font-size: var(--s); color: var(--muted); white-space: nowrap; }
+
+/* Code colours come from Shiki's light and dark themes. */
+.astro-code, .astro-code span { color: var(--shiki-light); background-color: var(--shiki-light-bg); }
+@media (prefers-color-scheme: dark) {
+  .astro-code, .astro-code span { color: var(--shiki-dark); background-color: var(--shiki-dark-bg); }
+}
+
+/* The picture viewer: the full picture over a dimmed page. A click or Esc closes it. */
+.viewer { width: 100vw; height: 100vh; max-width: none; max-height: none; margin: 0; padding: 16px; border: 0; background: transparent; cursor: zoom-out; }
+.viewer[open] { display: grid; place-items: center; }
+.viewer::backdrop { background: rgb(31 33 40 / .88); }
+.viewer img { max-width: 100%; max-height: 100%; object-fit: contain; }
+/* A diagram opens bigger than on the page, on the same plate. */
+.viewer img.is-diagram { box-sizing: border-box; width: min(100%, 720px); height: auto; padding: 18px; background: #FFFFFF; }
+@media (prefers-color-scheme: dark) {
+  /* The same tone as the page's dark-mode plate: #F4F4F4 is white at 95.7%. */
+  .viewer img.is-diagram { filter: brightness(.957); }
+}
+.viewer button { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; border: 0; border-radius: 8px; background: none; color: #F4F4F4; font-size: 28px; line-height: 1; cursor: pointer; }
+
+/* ---------- Phone ---------- */
+@property --cut { syntax: '<length>'; inherits: false; initial-value: 0px; }
+@keyframes cut { from, 94% { --cut: 40px; } to { --cut: 0px; } }
+@media (max-width: 640px) {
+  /* The brandmark starts and the search icon ends on the text column's edges (20px in). */
+  .head { padding: 6px 6px 6px 8px; }
+  .home { padding-top: 64px; padding-bottom: 80px; }
+  .logo svg { width: 200px; }
+  /* The tagline steps down to the text size, so it stays below the 200px logo. */
+  .tagline { margin-top: 20px; font-size: var(--m); }
+  .field { margin-top: 28px; }
+  .field svg { left: 15px; }
+  .q { height: 52px; padding-left: 43px; }
+  .below { margin-top: 48px; }
+  .sec + .sec, .group + .group { margin-top: 40px; }
+  /* Rows stack: the name, then its value under it. */
+  .row { grid-template-columns: minmax(0, 1fr); row-gap: 2px; padding: 10px 0; }
+  .page { padding-top: 28px; padding-bottom: 88px; }
+  .title { margin-bottom: 40px; }
+  .intro { font-size: var(--s); margin-bottom: 40px; }
+  .share { margin-top: 56px; }
+  .onward { margin-top: 40px; }
+  .prose h2 { font-size: 22px; }
+  .prose h3 { font-size: 18px; }
+  /* Wide tables scroll sideways. Every row stays one line, and while there is more to the right
+     the table fades out at its right edge (browsers without scroll timelines show no fade). */
+  .prose th, .prose td { white-space: nowrap; padding: .5em .6em; }
+  .prose .table-scroll {
+    -webkit-mask-image: linear-gradient(to left, transparent, #000 var(--cut));
+    mask-image: linear-gradient(to left, transparent, #000 var(--cut));
+    /* Longhands: the minifier folds the shorthand and the timeline into one invalid declaration. */
+    animation-name: cut;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: scroll(self inline);
+  }
+  .fig-diagram .fig-frame { padding: 12px; }
+  .foot { padding-bottom: 32px; }
+  .links a { margin: 0 7px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; }
+}

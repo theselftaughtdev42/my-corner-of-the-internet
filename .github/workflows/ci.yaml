@@ -6,22 +6,18 @@ on:
       - '**'
 
 jobs:
-  run-checks:
+  build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Install uv
-        uses: astral-sh/setup-uv@v2
+      - uses: actions/setup-node@v4
         with:
-          version: 0.4.16
-      
-      - name: Install Python
-        uses: actions/setup-python@v5
-        with:
-          python-version-file: '.python-version'
-      
-      - name: Check External Links
-        run: uv run scripts/flag_ext_links.py
+          node-version-file: .nvmrc
+          cache: npm
+
+      - run: npm ci
+
+      # Type-checks the code, checks every note's front matter, builds the site and its search index.
+      - name: Build the site
+        run: npm run build

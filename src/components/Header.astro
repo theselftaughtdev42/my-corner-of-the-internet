@@ -1,0 +1,29 @@
+---
+import type { PathPart } from '../lib/site';
+import Brandmark from './Brandmark.astro';
+import SearchIcon from './SearchIcon.astro';
+
+interface Props {
+  path: PathPart[];
+}
+const { path } = Astro.props;
+const parts: PathPart[] = [{ label: '~', href: '/' }, ...path];
+---
+<header class="head">
+  {/* The ~ is the home link for keyboards and screen readers; the brandmark repeats it for a mouse or a thumb. */}
+  <a href="/" class="head-mark" tabindex="-1" aria-hidden="true"><Brandmark /></a>
+  <nav class="path" aria-label="Breadcrumb">
+    <ol>
+      {parts.map((part, i) => {
+        const last = i === parts.length - 1;
+        return (
+          <li>
+            {last ? <span aria-current="page">{part.label}</span> : <a href={part.href}>{part.label}</a>}
+            {!last && <span class="sl" aria-hidden="true">/</span>}
+          </li>
+        );
+      })}
+    </ol>
+  </nav>
+  <a href="/#search" class="head-find" data-search-link aria-label="Search notes" title="Search (/)"><SearchIcon /></a>
+</header>

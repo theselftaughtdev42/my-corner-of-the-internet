@@ -1,1 +1,0 @@
-:fontawesome-solid-book:{ title="Published Book" }

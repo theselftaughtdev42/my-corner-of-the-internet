@@ -1,0 +1,16 @@
+---
+// One note in a list, the same everywhere: its title and date on one line, and under them one muted line
+// (its description, or a snippet while searching).
+import Day from './Day.astro';
+import { noteUrl, type Note } from '../lib/notes';
+interface Props {
+  note: Note;
+  /** Show the description. On Home it stays hidden until a search fills it with a snippet. */
+  rich?: boolean;
+}
+const { note, rich = false } = Astro.props;
+const url = noteUrl(note);
+---
+<li class="li" data-url={url} data-title={note.data.title} data-description={note.data.description} data-series={note.data.series ?? ''}>
+  <a href={url} class="item row"><span class="t">{note.data.title}</span><span class="v"><Day date={note.data.date.created} /></span><span class="d" hidden={!rich}>{rich ? note.data.description : ''}</span></a>
+</li>

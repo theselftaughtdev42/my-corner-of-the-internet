@@ -1,0 +1,9 @@
+---
+// A series' value, on Home and under its title: its bars, one per note (so the count needs no words on
+// screen), and the date its newest note was added.
+import Day from './Day.astro';
+import { plural, seriesAdded, type Series } from '../lib/notes';
+interface Props { series: Series }
+const { series } = Astro.props;
+---
+<span class="sbars" aria-hidden="true">{series.notes.map(() => <span />)}</span><span class="vh">{plural(series.notes.length, 'note')}, </span>updated <Day date={seriesAdded(series)} />

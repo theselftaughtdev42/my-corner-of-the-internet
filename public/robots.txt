@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://theselftaughtdev.io/sitemap.xml
