@@ -11,6 +11,21 @@ interface Props {
 const { note, rich = false } = Astro.props;
 const url = noteUrl(note);
 ---
-<li class="li" data-url={url} data-title={note.data.title} data-description={note.data.description} data-series={note.data.series ?? ''}>
-  <a href={url} class="item row"><span class="t">{note.data.title}</span><span class="v"><Day date={note.data.date.created} /></span><span class="d" hidden={!rich}>{rich ? note.data.description : ''}</span></a>
+
+<li
+  class="li"
+  data-url={url}
+  data-title={note.data.title}
+  data-description={note.data.description}
+  data-series={note.data.series ?? ''}
+>
+  <a href={url} class="item row">
+    <span class="t">{note.data.title}</span>
+    <span class="v">
+      <Day date={note.data.date.created} />
+    </span>
+    <span class="d" hidden={!rich}>
+      {rich ? note.data.description : ''}
+    </span>
+  </a>
 </li>

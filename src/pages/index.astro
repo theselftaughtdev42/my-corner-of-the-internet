@@ -15,10 +15,13 @@ const library = await getLibrary();
 const recent = library.notes.slice(0, RECENT);
 const series = [...library.series].sort((a, b) => seriesAdded(b).getTime() - seriesAdded(a).getTime());
 ---
+
 <Base card="/og/home.png">
   <main class="main home" id="main">
     <div class="hero">
-      <h1 class="logo"><Logo /></h1>
+      <h1 class="logo">
+        <Logo />
+      </h1>
       <p class="tagline">{SITE.tagline}</p>
       <div class="field" role="search">
         <SearchIcon />
@@ -36,26 +39,50 @@ const series = [...library.series].sort((a, b) => seriesAdded(b).getTime() - ser
         />
       </div>
     </div>
-    <p class="status"><span class="msg" aria-live="polite"></span></p>
+    <p class="status">
+      <span class="msg" aria-live="polite"></span>
+    </p>
     <div class="below">
       <div class="rest">
         <section class="sec" aria-labelledby="h-recent">
           <div class="sec-head">
-            <h2 class="sname" id="h-recent">Recent notes</h2>
-            <a href="/notes/" class="all">All notes</a>
+            <h2 class="sname" id="h-recent">
+              Recent notes
+            </h2>
+            <a href="/notes/" class="all">
+              All notes
+            </a>
           </div>
           <ul class="rows">
-            {recent.map(note => (
-              <li><a href={noteUrl(note)} class="item row"><span class="t">{note.data.title}</span><span class="v"><Day date={note.data.date.created} /></span></a></li>
+            {recent.map((note) => (
+              <li>
+                <a href={noteUrl(note)} class="item row">
+                  <span class="t">{note.data.title}</span>
+                  <span class="v">
+                    <Day date={note.data.date.created} />
+                  </span>
+                </a>
+              </li>
             ))}
           </ul>
         </section>
         {series.length > 0 && (
           <section class="sec" aria-labelledby="h-series">
-            <div class="sec-head"><h2 class="sname" id="h-series">Series</h2></div>
+            <div class="sec-head">
+              <h2 class="sname" id="h-series">
+                Series
+              </h2>
+            </div>
             <ul class="rows">
-              {series.map(s => (
-                <li><a href={seriesUrl(s)} class="item row"><span class="t">{s.name}</span><span class="v"><SeriesValue series={s} /></span></a></li>
+              {series.map((s) => (
+                <li>
+                  <a href={seriesUrl(s)} class="item row">
+                    <span class="t">{s.name}</span>
+                    <span class="v">
+                      <SeriesValue series={s} />
+                    </span>
+                  </a>
+                </li>
               ))}
             </ul>
           </section>

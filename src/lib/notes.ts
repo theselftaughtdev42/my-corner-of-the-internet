@@ -49,7 +49,7 @@ export function getLibrary(): Promise<Library> {
 }
 
 async function load(): Promise<Library> {
-  const notes = (await getCollection('notes', n => import.meta.env.DEV || !n.data.draft)).sort(newestFirst);
+  const notes = (await getCollection('notes', (n) => import.meta.env.DEV || !n.data.draft)).sort(newestFirst);
 
   // Each series has its own folder, whose name is the series' address (short names keep the path readable).
   const bySeries = new Map<string, Note[]>();
@@ -89,9 +89,9 @@ async function load(): Promise<Library> {
     urls.add(url);
   }
 
-  return { notes, series, standalone: notes.filter(n => !n.data.series) };
+  return { notes, series, standalone: notes.filter((n) => !n.data.series) };
 }
 
 export function seriesOf(library: Library, note: Note) {
-  return library.series.find(s => s.name === note.data.series);
+  return library.series.find((s) => s.name === note.data.series);
 }

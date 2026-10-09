@@ -25,7 +25,7 @@ export async function rssFeed(site: URL, order: FeedOrder) {
     site,
     xmlns: { atom: 'http://www.w3.org/2005/Atom' },
     customData: `<language>en</language><atom:link href="${new URL(`/feed_rss_${order}.xml`, site)}" rel="self" type="application/rss+xml" />`,
-    items: notes.map(n => ({
+    items: notes.map((n) => ({
       title: n.data.title,
       description: n.data.description,
       link: noteUrl(n),
@@ -47,7 +47,7 @@ export async function jsonFeed(site: URL, order: FeedOrder) {
     feed_url: new URL(`/feed_json_${order}.json`, site).href,
     language: 'en',
     authors: [{ name: SITE.author }],
-    items: notes.map(n => ({
+    items: notes.map((n) => ({
       id: new URL(noteUrl(n), site).href,
       url: new URL(noteUrl(n), site).href,
       title: n.data.title,
@@ -59,5 +59,7 @@ export async function jsonFeed(site: URL, order: FeedOrder) {
       tags: n.data.tags,
     })),
   };
-  return new Response(JSON.stringify(feed, null, 2), { headers: { 'Content-Type': 'application/feed+json; charset=utf-8' } });
+  return new Response(JSON.stringify(feed, null, 2), {
+    headers: { 'Content-Type': 'application/feed+json; charset=utf-8' },
+  });
 }

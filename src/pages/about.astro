@@ -1,20 +1,38 @@
 ---
 import Base from '../layouts/Base.astro';
 ---
+
 <Base title="About Me" description="Who is Tim MacKay?" path={[{ label: 'about' }]} card="/og/about.png">
   <main class="main page" id="main">
     <header class="title">
-      <img class="portrait" src="https://github.com/theselftaughtdev42.png" alt="A photo of Tim MacKay" width="128" height="128" />
+      <img
+        class="portrait"
+        src="https://github.com/theselftaughtdev42.png"
+        alt="A photo of Tim MacKay"
+        width="128"
+        height="128"
+      />
       <h1 class="h1">Tim MacKay</h1>
-      <div class="detail"><span>Obsessive Learner</span></div>
+      <div class="detail">
+        <span>Obsessive Learner</span>
+      </div>
     </header>
     <ul class="notables">
       <li>
         Conference speaker at <abbr title="Defence Science and Technology Laboratory">DSTL</abbr>{' '}
-        <a class="ext" href="https://www.gov.uk/government/news/ai-fest-5-bringing-together-top-minds-in-artificial-intelligence" target="_blank" rel="noopener">AI Fest 5<span class="vh"> (opens in a new tab)</span></a>
+        <a
+          class="ext"
+          href="https://www.gov.uk/government/news/ai-fest-5-bringing-together-top-minds-in-artificial-intelligence"
+          target="_blank"
+          rel="noopener"
+        >
+          AI Fest 5<span class="vh"> (opens in a new tab)</span>
+        </a>
       </li>
       <li>Deployed on UK Specialist Military Operations to develop novel software.</li>
-      <li>Presented to 10 Downing Street Data Science team on code quality and <abbr title="Quality Assurance">QA</abbr>.</li>
+      <li>
+        Presented to 10 Downing Street Data Science team on code quality and <abbr title="Quality Assurance">QA</abbr>.
+      </li>
     </ul>
   </main>
 </Base>

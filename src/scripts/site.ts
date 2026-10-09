@@ -1,7 +1,7 @@
 // Behaviour on every page: the footer's year, the "/" shortcut to search, the picture viewer, and the Konami code.
 
 // The footer's copyright year is the reader's current year, not the year the site was last built.
-document.querySelectorAll('[data-year]').forEach(el => (el.textContent = String(new Date().getFullYear())));
+document.querySelectorAll('[data-year]').forEach((el) => (el.textContent = String(new Date().getFullYear())));
 
 /** Set when a reader goes to search from another page, so Esc in the empty box can take them back. */
 export const FROM_KEY = 'search-from';
@@ -18,9 +18,11 @@ function rememberPage() {
 }
 
 // The search box lives on Home. The header's search icon and "/" go there and put the cursor in it.
-document.querySelectorAll<HTMLAnchorElement>('[data-search-link]').forEach(a => a.addEventListener('click', rememberPage));
+document
+  .querySelectorAll<HTMLAnchorElement>('[data-search-link]')
+  .forEach((a) => a.addEventListener('click', rememberPage));
 
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', (e) => {
   if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey || typing(e.target)) return;
   const box = document.querySelector<HTMLInputElement>('#q');
   e.preventDefault();
@@ -54,7 +56,7 @@ function openPicture(img: HTMLImageElement) {
   big.classList.toggle('is-diagram', !!img.closest('.fig-diagram'));
   viewer.showModal();
 }
-document.addEventListener('click', e => {
+document.addEventListener('click', (e) => {
   const link = (e.target as Element).closest?.('a.fig-frame');
   if (!link || e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return;
   const img = link.querySelector('img');
@@ -64,9 +66,20 @@ document.addEventListener('click', e => {
 });
 
 // Konami code easter egg: ↑ ↑ ↓ ↓ ← → ← → B A opens the (unlisted) Self-Taught Pathway page.
-const KONAMI = ['ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight', 'b', 'a'];
+const KONAMI = [
+  'ArrowUp',
+  'ArrowUp',
+  'ArrowDown',
+  'ArrowDown',
+  'ArrowLeft',
+  'ArrowRight',
+  'ArrowLeft',
+  'ArrowRight',
+  'b',
+  'a',
+];
 let pos = 0;
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', (e) => {
   // Single characters (B/A) count in either case; named keys stay as they are.
   const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
   if (key === KONAMI[pos]) pos += 1;

@@ -11,17 +11,24 @@ interface Props {
 }
 const { library, rich = false, id, hidden = false } = Astro.props;
 const groups = [
-  ...library.series.map(s => ({ name: s.name, href: seriesUrl(s), notes: s.notes, ordered: true })),
-  ...(library.standalone.length ? [{ name: 'Standalone notes', href: undefined, notes: library.standalone, ordered: false }] : []),
+  ...library.series.map((s) => ({ name: s.name, href: seriesUrl(s), notes: s.notes, ordered: true })),
+  ...(library.standalone.length
+    ? [{ name: 'Standalone notes', href: undefined, notes: library.standalone, ordered: false }]
+    : []),
 ];
 ---
+
 <div class:list={['list', { rich }]} id={id} hidden={hidden}>
   {groups.map((g, i) => {
     const Tag = g.ordered ? 'ol' : 'ul';
     return (
       <section class="group" data-g={i}>
         <h2 class="gname">{rich && g.href ? <a href={g.href}>{g.name}</a> : g.name}</h2>
-        <Tag class="items">{g.notes.map(note => <NoteItem note={note} rich={rich} />)}</Tag>
+        <Tag class="items">
+          {g.notes.map((note) => (
+            <NoteItem note={note} rich={rich} />
+          ))}
+        </Tag>
       </section>
     );
   })}

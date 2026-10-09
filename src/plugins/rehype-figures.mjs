@@ -9,11 +9,11 @@ import { imageMetadata, inferRemoteSize } from 'astro/assets/utils';
 // Each picture links to its full-size file, which the page opens in a viewer when scripts run.
 // Each picture also gets its width and height, so the text below it doesn't jump as it loads.
 export default function rehypeFigures() {
-  return async tree => {
+  return async (tree) => {
     const imgs = [];
     visit(tree, 'element', (node, index, parent) => {
       if (node.tagName !== 'p' || !parent || index === undefined) return;
-      const kids = node.children.filter(c => !(c.type === 'text' && !c.value.trim()));
+      const kids = node.children.filter((c) => !(c.type === 'text' && !c.value.trim()));
       if (kids.length !== 1 || kids[0].type !== 'element' || kids[0].tagName !== 'img') return;
       const img = kids[0];
       const src = String(img.properties.src || '');
@@ -27,15 +27,30 @@ export default function rehypeFigures() {
       const link = {
         type: 'element',
         tagName: 'a',
-        properties: { href: src, className: ['fig-frame'], ...(alt ? {} : { ariaLabel: 'Open the picture full size' }) },
+        properties: {
+          href: src,
+          className: ['fig-frame'],
+          ...(alt ? {} : { ariaLabel: 'Open the picture full size' }),
+        },
         children: [img],
       };
       const children = [link];
-      if (caption) children.push({ type: 'element', tagName: 'figcaption', properties: {}, children: [{ type: 'text', value: caption }] });
-      parent.children[index] = { type: 'element', tagName: 'figure', properties: { className: ['fig', `fig-${kind}`] }, children };
+      if (caption)
+        children.push({
+          type: 'element',
+          tagName: 'figcaption',
+          properties: {},
+          children: [{ type: 'text', value: caption }],
+        });
+      parent.children[index] = {
+        type: 'element',
+        tagName: 'figure',
+        properties: { className: ['fig', `fig-${kind}`] },
+        children,
+      };
     });
     await Promise.all(
-      imgs.map(async img => {
+      imgs.map(async (img) => {
         const size = await sizeOf(String(img.properties.src));
         if (size) Object.assign(img.properties, size);
       }),
@@ -43,7 +58,7 @@ export default function rehypeFigures() {
   };
 }
 
-const isSvg = src => /\.svg(\?|#|$)/i.test(src);
+const isSvg = (src) => /\.svg(\?|#|$)/i.test(src);
 const sizes = new Map();
 
 // A picture that can't be measured (offline, say) still shows; it just doesn't hold its space.
@@ -52,7 +67,7 @@ function sizeOf(src) {
     const timeout = new Promise((_, reject) => setTimeout(() => reject(new Error('timed out')), 20_000).unref());
     sizes.set(
       src,
-      Promise.race([measure(src), timeout]).catch(err => {
+      Promise.race([measure(src), timeout]).catch((err) => {
         console.warn(`[figures] Couldn't measure ${src}: ${err.message}`);
         return null;
       }),
@@ -84,12 +99,15 @@ async function measure(src) {
 // reader gives up on, so a diagram's size is read from its <svg> tag: width and height, or else viewBox.
 function svgSize(svg) {
   const tag = svg.match(/<svg\b[^>]*>/i)?.[0] ?? '';
-  const attr = name => tag.match(new RegExp(`\\s${name}\\s*=\\s*["']([^"']*)["']`, 'i'))?.[1];
-  const px = v => (v && /^\s*[\d.]+\s*(px)?\s*$/.test(v) ? Math.round(parseFloat(v)) : undefined);
+  const attr = (name) => tag.match(new RegExp(`\\s${name}\\s*=\\s*["']([^"']*)["']`, 'i'))?.[1];
+  const px = (v) => (v && /^\s*[\d.]+\s*(px)?\s*$/.test(v) ? Math.round(parseFloat(v)) : undefined);
   let width = px(attr('width'));
   let height = px(attr('height'));
   if (!width || !height) {
-    const box = (attr('viewBox') ?? '').trim().split(/[\s,]+/).map(Number);
+    const box = (attr('viewBox') ?? '')
+      .trim()
+      .split(/[\s,]+/)
+      .map(Number);
     if (box.length === 4 && box[2] > 0 && box[3] > 0) [width, height] = [Math.round(box[2]), Math.round(box[3])];
   }
   if (!width || !height) throw new Error('no width, height or viewBox on its <svg> tag');

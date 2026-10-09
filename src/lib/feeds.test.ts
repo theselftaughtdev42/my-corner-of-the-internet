@@ -67,7 +67,7 @@ async function rssItems(order: 'created' | 'updated') {
   const items = [...xml.matchAll(/<item>(.*?)<\/item>/gs)].map(([, item]) => ({
     link: item.match(/<link>(.*?)<\/link>/)?.[1],
     date: new Date(item.match(/<pubDate>(.*?)<\/pubDate>/)![1]).toISOString().slice(0, 10),
-    categories: [...item.matchAll(/<category>(.*?)<\/category>/g)].map(m => m[1]),
+    categories: [...item.matchAll(/<category>(.*?)<\/category>/g)].map((m) => m[1]),
   }));
   return { xml, items };
 }
@@ -76,7 +76,7 @@ describe('rssFeed', () => {
   it('lists notes by the date they last changed, linking to itself', async () => {
     const { xml, items } = await rssItems('updated');
     expect(xml).toContain('<atom:link href="https://theselftaughtdev.io/feed_rss_updated.xml" rel="self"');
-    expect(items.map(i => [i.link, i.date])).toEqual([
+    expect(items.map((i) => [i.link, i.date])).toEqual([
       ['https://theselftaughtdev.io/notes/old-but-edited/', '2024-09-01'],
       ['https://theselftaughtdev.io/notes/newest/', '2024-06-01'],
       ['https://theselftaughtdev.io/notes/learn/one/', '2024-03-01'],
@@ -85,7 +85,7 @@ describe('rssFeed', () => {
 
   it('lists notes by the date they were added', async () => {
     const { items } = await rssItems('created');
-    expect(items.map(i => [i.link, i.date])).toEqual([
+    expect(items.map((i) => [i.link, i.date])).toEqual([
       ['https://theselftaughtdev.io/notes/newest/', '2024-06-01'],
       ['https://theselftaughtdev.io/notes/learn/one/', '2024-03-01'],
       ['https://theselftaughtdev.io/notes/old-but-edited/', '2024-01-01'],
@@ -94,6 +94,6 @@ describe('rssFeed', () => {
 
   it('files a series note under its series, and no other note', async () => {
     const { items } = await rssItems('created');
-    expect(items.map(i => i.categories)).toEqual([[], ['Learning'], []]);
+    expect(items.map((i) => i.categories)).toEqual([[], ['Learning'], []]);
   });
 });

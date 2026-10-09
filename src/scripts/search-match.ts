@@ -18,7 +18,7 @@ export interface Listed {
 }
 
 export const esc = (s: string) =>
-  s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+  s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 
 /** A page's path as the list writes it, from one of Pagefind's addresses. */
 export const pagePath = (url: string, origin: string) => {
@@ -28,13 +28,20 @@ export const pagePath = (url: string, origin: string) => {
 
 /** The query's words, lower case, with punctuation trimmed from their ends. */
 export const terms = (q: string) =>
-  (q || '').toLowerCase().split(/\s+/).map(t => t.replace(/^[^\w~/]+|[^\w]+$/g, '')).filter(Boolean);
+  (q || '')
+    .toLowerCase()
+    .split(/\s+/)
+    .map((t) => t.replace(/^[^\w~/]+|[^\w]+$/g, ''))
+    .filter(Boolean);
 
 /** Escaped HTML of the text, with each of the words in <mark>. */
 export function highlight(text: string, ts: string[]) {
   if (!ts.length) return esc(text);
-  const re = new RegExp(`(${ts.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'ig');
-  return text.split(re).map((part, i) => (i % 2 ? `<mark>${esc(part)}</mark>` : esc(part))).join('');
+  const re = new RegExp(`(${ts.map((t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})`, 'ig');
+  return text
+    .split(re)
+    .map((part, i) => (i % 2 ? `<mark>${esc(part)}</mark>` : esc(part)))
+    .join('');
 }
 
 /**
@@ -51,7 +58,10 @@ export function findInList(q: string, notes: Listed[]): Hit[] {
     let score = 0;
     for (const t of ts) {
       const s = title.includes(t) ? 10 : desc.includes(t) ? 4 : series.includes(t) ? 3 : 0;
-      if (!s) { score = 0; break; }
+      if (!s) {
+        score = 0;
+        break;
+      }
       score += s;
     }
     if (score) out.push({ url: note.url, score });
@@ -61,7 +71,7 @@ export function findInList(q: string, notes: Listed[]): Hit[] {
 
 /** The line under a match: its description when the words are in it, else Pagefind's excerpt. */
 export function snippet(description: string, ts: string[], hit: Hit) {
-  if (terms(description).some(w => ts.some(t => w.includes(t)))) return highlight(description, ts);
+  if (terms(description).some((w) => ts.some((t) => w.includes(t)))) return highlight(description, ts);
   return hit.excerpt || esc(description);
 }
 

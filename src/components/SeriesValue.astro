@@ -3,7 +3,15 @@
 // screen), and the date its newest note was added.
 import Day from './Day.astro';
 import { plural, seriesAdded, type Series } from '../lib/notes';
-interface Props { series: Series }
+interface Props {
+  series: Series;
+}
 const { series } = Astro.props;
 ---
-<span class="sbars" aria-hidden="true">{series.notes.map(() => <span />)}</span><span class="vh">{plural(series.notes.length, 'note')}, </span>updated <Day date={seriesAdded(series)} />
+
+<span class="sbars" aria-hidden="true">
+  {series.notes.map(() => (
+    <span />
+  ))}
+</span>
+<span class="vh">{plural(series.notes.length, 'note')}, </span>updated <Day date={seriesAdded(series)} />
