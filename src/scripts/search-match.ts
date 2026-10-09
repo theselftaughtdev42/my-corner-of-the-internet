@@ -13,7 +13,7 @@ export interface Listed {
   url: string;
   title: string;
   description: string;
-  /** Unset for a note in no series. */
+  /** Empty (as the page writes it) or unset for a note in no series. */
   series?: string;
 }
 

@@ -51,14 +51,15 @@ describe('pagePath', () => {
 });
 
 describe('findInList', () => {
+  // Weaker matches come first here, so the tests show the results are sorted best first.
   const notes: Listed[] = [
-    { url: '/a/', title: 'Spaced repetition', description: 'Remember more by reviewing', series: 'How We Learn' },
     { url: '/b/', title: 'Binary made easy', description: 'Counting with spaced-out bits', series: 'Intro to CS' },
-    { url: '/c/', title: 'To uni or not', description: 'A choice' },
+    { url: '/a/', title: 'Spaced repetition', description: 'Remember more by reviewing', series: 'How We Learn' },
+    { url: '/c/', title: 'To uni or not', description: 'A choice', series: '' },
   ];
   const urls = (q: string) => findInList(q, notes).map(h => [h.url, h.score]);
 
-  it('scores the title above the description, and both above the series', () => {
+  it('scores the title above the description, and both above the series, best first', () => {
     expect(urls('spaced')).toEqual([['/a/', 10], ['/b/', 4]]);
     expect(urls('learn')).toEqual([['/a/', 3]]);
   });

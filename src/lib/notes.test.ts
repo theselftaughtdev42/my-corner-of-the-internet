@@ -102,6 +102,12 @@ describe('getLibrary', () => {
     expect(lib.notes.map(n => n.id)).toEqual(['draft', 'live']);
   });
 
+  it('reads the notes once', async () => {
+    const { getLibrary, lib } = await library([{ id: 'first', created: '2024-01-01' }]);
+    entries = [{ id: 'later', created: '2024-01-02' }];
+    expect(await getLibrary()).toBe(lib);
+  });
+
   it('finds the series a note is in', async () => {
     const { lib, seriesOf } = await library([
       { id: 'alone', created: '2024-01-01' },

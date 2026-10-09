@@ -61,20 +61,39 @@ describe('jsonFeed', () => {
   });
 });
 
+// Each <item> of a feed: its link, date and categories.
+async function rssItems(order: 'created' | 'updated') {
+  const xml = await (await rssFeed(site, order)).text();
+  const items = [...xml.matchAll(/<item>(.*?)<\/item>/gs)].map(([, item]) => ({
+    link: item.match(/<link>(.*?)<\/link>/)?.[1],
+    date: new Date(item.match(/<pubDate>(.*?)<\/pubDate>/)![1]).toISOString().slice(0, 10),
+    categories: [...item.matchAll(/<category>(.*?)<\/category>/g)].map(m => m[1]),
+  }));
+  return { xml, items };
+}
+
 describe('rssFeed', () => {
-  it('lists notes in feed order, linking to itself', async () => {
-    const xml = await (await rssFeed(site, 'updated')).text();
+  it('lists notes by the date they last changed, linking to itself', async () => {
+    const { xml, items } = await rssItems('updated');
     expect(xml).toContain('<atom:link href="https://theselftaughtdev.io/feed_rss_updated.xml" rel="self"');
-    const links = [...xml.matchAll(/<item>.*?<link>(.*?)<\/link>/g)].map(m => m[1]);
-    expect(links).toEqual([
-      'https://theselftaughtdev.io/notes/old-but-edited/',
-      'https://theselftaughtdev.io/notes/newest/',
-      'https://theselftaughtdev.io/notes/learn/one/',
+    expect(items.map(i => [i.link, i.date])).toEqual([
+      ['https://theselftaughtdev.io/notes/old-but-edited/', '2024-09-01'],
+      ['https://theselftaughtdev.io/notes/newest/', '2024-06-01'],
+      ['https://theselftaughtdev.io/notes/learn/one/', '2024-03-01'],
     ]);
   });
 
-  it("files a series note under its series", async () => {
-    const xml = await (await rssFeed(site, 'created')).text();
-    expect(xml).toMatch(/<link>https:\/\/theselftaughtdev\.io\/notes\/learn\/one\/<\/link>.*<category>Learning<\/category>/);
+  it('lists notes by the date they were added', async () => {
+    const { items } = await rssItems('created');
+    expect(items.map(i => [i.link, i.date])).toEqual([
+      ['https://theselftaughtdev.io/notes/newest/', '2024-06-01'],
+      ['https://theselftaughtdev.io/notes/learn/one/', '2024-03-01'],
+      ['https://theselftaughtdev.io/notes/old-but-edited/', '2024-01-01'],
+    ]);
+  });
+
+  it('files a series note under its series, and no other note', async () => {
+    const { items } = await rssItems('created');
+    expect(items.map(i => i.categories)).toEqual([[], ['Learning'], []]);
   });
 });
