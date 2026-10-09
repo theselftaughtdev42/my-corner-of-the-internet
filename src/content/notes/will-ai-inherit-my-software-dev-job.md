@@ -19,7 +19,7 @@ Work wasn't "work" anymore: it was adventure; it was exploration; it was discove
 
 There were two significant moments when I realised change was on the doorstep:
 
-1. A demo in 2022 of an early version of Github Copilot. You typed what you wanted the code to do and then watched as it magically generated before your eyes. I remember thinking that we had automated away the fun part of coding. Ironically, I have grown to love Github Copilot and often use it as an autocomplete for my thought process 🤫 But it does still fall over with new features of languages/frameworks — AI is only as up-to-date as its training data.
+1. A demo in 2022 of an early version of GitHub Copilot. You typed what you wanted the code to do and then watched as it magically generated before your eyes. I remember thinking that we had automated away the fun part of coding. Ironically, I have grown to love GitHub Copilot and often use it as an autocomplete for my thought process 🤫 But it does still fall over with new features of languages/frameworks — AI is only as up-to-date as its training data.
 
 2. The first time I held a technical conversation with ChatGPT and the weight of what that meant. It helped me understand a new concept I was grappling with. I was able to validate my comprehension (or lack thereof) by repeating the concept back in my own words and having ChatGPT confirm or correct my understanding.
 
@@ -27,7 +27,7 @@ There were two significant moments when I realised change was on the doorstep:
 
 This all leads to the question on my mind: _if Artificial Intelligence can be so good at technical creation in this early stage, will it eventually inherit my job of actually writing code?_
 
-I don't actually know the answer to this. I'm not sure anyone does...yet. If the past has taught us anything it's that the future is hard to predict. But I think it's important to contemplate potential outcomes.
+I don't actually know the answer to this. I'm not sure anyone does…yet. If the past has taught us anything it's that the future is hard to predict. But I think it's important to contemplate potential outcomes.
 
 In the next few years, Artificial Intelligence could take on a role comparable to an aircraft's autopilot system: it'll do most of the heavy lifting but won't be trusted to do it unconditionally. Pilots in aircraft often do very little actual flying. They usually control take-off and landing. Then for the rest of the flight they monitor, make adjustments if required and — most importantly — are fully trained to take control in case of emergencies.
 
@@ -36,7 +36,7 @@ A day in my future dev-life might look like this:
 1. Tell AI to generate feature X to solve problem Y
 1. Look over generated code — and its related unit tests, of course — to verify it works as intended. If not, adjust and repeat step 1 ⚠️ _potential infinite loop for a stubborn mind_ ⚠️
 1. If all is well, merge code into codebase
-1. If all is not well, oil programming hinges and put fingers to keyboard like I did in the good old days. Maybe ask ChatGPT to help...ahem
+1. If all is not well, oil programming hinges and put fingers to keyboard like I did in the good old days. Maybe ask ChatGPT to help…ahem
 
 The human will have moved from a person who creates, to a person who guides: mastering the art of leveraging AI to generate vast quantities of code that integrates into the existing codebase. Teams could end up moving at a pace we can only dream of currently.
 

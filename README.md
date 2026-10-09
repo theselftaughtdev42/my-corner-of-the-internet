@@ -13,10 +13,11 @@ npm run build     # type-check, build into dist/ and index the notes for search
 npm run preview   # serve dist/, with full-text search
 npm test          # unit tests
 npm run lint      # ESLint (lint:fix to fix what it can)
+npm run lint:prose  # Vale checks the notes' prose style
 npm run format    # Prettier (format:check only checks)
 ```
 
-A pre-commit hook lints and formats the files you've staged.
+A pre-commit hook lints and formats the files you've staged, and runs Vale over staged notes.
 
 ## Writing a note
 Copy `templates/note.md` into `src/content/notes/`. A note in a series goes in the series' folder
@@ -28,7 +29,9 @@ note's front matter, so a typo fails the build instead of quietly dropping a not
 - Pictures: `![Alt text](https://… "Optional caption")` on a line of its own.
 - Maths: `$…$`.
 - Abbreviations in `src/data/abbreviations.mjs` get tooltips wherever they appear.
+- Vale flags words it doesn't know as spelling errors. Add real ones to `.vale/styles/config/vocabularies/Site/accept.txt`
+  (case-sensitive; start a line with `(?i)` to ignore case). Its rules are switched on and off in `.vale.ini`.
 
 ## Publishing
 Every push to `main` builds the site and publishes it to the `gh-pages` branch, which GitHub Pages serves.
-Pull requests run the lint, format check, unit tests and build as checks.
+Pull requests run the lint, prose check, format check, unit tests and build as checks.
