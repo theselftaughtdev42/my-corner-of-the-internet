@@ -1,0 +1,193 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Binary Made Easy - The Self-Taught Dev</title><meta name="description" content="Discover how binary numbers mirror the familiar decimal system and see how counting in twos can be surprisingly simple."><meta name="author" content="Tim MacKay"><link rel="canonical" href="https://theselftaughtdev.io/notes/intro-to-cs/binary-made-easy/"><link rel="icon" href="/assets/favicon.png"><link rel="alternate" type="application/rss+xml" title="The Self-Taught Dev" href="/feed_rss_created.xml"><meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)"><meta name="theme-color" content="#1F2128" media="(prefers-color-scheme: dark)"><meta property="og:type" content="article"><meta property="og:site_name" content="The Self-Taught Dev"><meta property="og:title" content="Binary Made Easy - The Self-Taught Dev"><meta property="og:description" content="Discover how binary numbers mirror the familiar decimal system and see how counting in twos can be surprisingly simple."><meta property="og:url" content="https://theselftaughtdev.io/notes/intro-to-cs/binary-made-easy/"><meta property="og:image" content="https://theselftaughtdev.io/og/notes/intro-to-cs/binary-made-easy.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Binary Made Easy - The Self-Taught Dev"><meta name="twitter:description" content="Discover how binary numbers mirror the familiar decimal system and see how counting in twos can be surprisingly simple."><meta name="twitter:image" content="https://theselftaughtdev.io/og/notes/intro-to-cs/binary-made-easy.png"><script async src="https://www.googletagmanager.com/gtag/js?id=G-9CR821NBE4"></script><script>(function(){const gaId = "G-9CR821NBE4";
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            // gtag.js needs the arguments object itself: it ignores an array from rest parameters.
+            // eslint-disable-next-line prefer-rest-params
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', gaId);
+        })();</script><link rel="stylesheet" href="/_astro/Base.CeXZIMA5.css"></head><body><a class="skip" href="#main">Skip to content</a><header class="head"><a href="/" class="head-mark" tabindex="-1" aria-hidden="true"><svg viewBox="0 0 333.69 333.7" aria-hidden="true" focusable="false"><polygon fill="#FF7F29" points="158.45 244.66 158.45 333.7 0 333.7 0 175.23 89.01 175.23 89.01 244.66 158.45 244.66"></polygon><polygon fill="currentColor" points="0 0 333.69 0 333.69 333.69 223.8 333.69 223.8 109.88 0 109.88 0 0"></polygon></svg></a><nav class="path" aria-label="Breadcrumb"><ol><li><a href="/">~</a><span class="sl" aria-hidden="true">/</span></li><li><a href="/notes/">notes</a><span class="sl" aria-hidden="true">/</span></li><li><a href="/notes/intro-to-cs/">intro-to-cs</a><span class="sl" aria-hidden="true">/</span></li><li><span aria-current="page">binary-made-easy</span></li></ol></nav><a href="/#search" class="head-find" data-search-link aria-label="Search notes" title="Search (/)"><svg viewBox="0 0 20 20" aria-hidden="true" focusable="false"><circle cx="8.5" cy="8.5" r="5.75" fill="none" stroke="currentColor" stroke-width="1.8"></circle><path d="M12.9 12.9 17.5 17.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="square"></path></svg></a></header><main class="main page" id="main"><article data-pagefind-body><header class="title"><h1 class="h1">Binary Made Easy</h1><div class="detail"><div class="bars" role="group" aria-label="Intro to Computer Science: 2 notes in order"><span class="bar is-current" role="img" title="1. Binary Made Easy" aria-label="Part 1: Binary Made Easy, this note"></span><a class="bar" href="/notes/intro-to-cs/how-computers-speak-in-binary/" title="2. Discover How Computers Speak in Binary" aria-label="Part 2: Discover How Computers Speak in Binary"></a></div><span><span class="vh">Intro to Computer Science, </span><span data-pagefind-ignore>Part 1 of 2 <span class="dot" aria-hidden="true">·</span> <time datetime="2025-01-13">13 Jan 2025</time></span></span></div></header><div class="prose"><p>Binary numbers might seem mystifying at first glance, but this article breaks it down into familiar logic you use every day. By explaining the parallels between counting in tens and counting in twos, you'll be guided to understand how ones and zeros can represent anything!</p>
+<div class="callout callout-warning" role="note"><p class="callout-title">Joke Alert!</p><p>"There are 10 types of people in this world, those who understand binary and those who don't." – <em>(Source Unknown)</em></p><p>If you don't get this joke now, you will by the end of this article.</p></div>
+<hr>
+<p>Many people find binary intimidating, but it's simpler than you think. If you can count, then you can read binary. Today, we will break down this problem by reviewing how we understand numbers and then applying that same logic to binary.</p>
+<h2 id="decimal-system">Decimal System</h2>
+<p>In everyday life, when we count we typically use the decimal numbering system. In this system, a single digit is often referred to as a unit:</p>
+<ul>
+<li>0 = no units</li>
+<li>1 = one unit</li>
+<li>2 = two units, etc.</li>
+</ul>
+<p>When we reach ten units, we reset our units to zero and add another digit to the left and then continue incrementing the unit. This new digit to the left represents a multiple of 10, creating the "tens" column. Each column added to the left is another multiple of 10: so the pattern becomes <em>units, tens, hundreds, thousands</em> etc. The table below should be familiar:</p>
+<section class="table-scroll" tabindex="0" aria-label="Table 1">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th class="align-center">Thousands</th><th class="align-center">Hundreds</th><th class="align-center">Tens</th><th class="align-center">Units</th><th class="align-center">Name</th><th class="align-center">Number</th></tr></thead><tbody><tr><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">1</td><td class="align-center">One</td><td class="align-center">1</td></tr><tr><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">1</td><td class="align-center">0</td><td class="align-center">Ten</td><td class="align-center">10</td></tr><tr><td class="align-center">0</td><td class="align-center">1</td><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">One Hundred</td><td class="align-center">100</td></tr><tr><td class="align-center">1</td><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">One Thousand</td><td class="align-center">1,000</td></tr><tr><td class="align-center">2</td><td class="align-center">3</td><td class="align-center">4</td><td class="align-center">5</td><td class="align-center">Two Thousand Three Hundred Forty-Five</td><td class="align-center">2,345</td></tr></tbody></table></section>
+<h2 id="recognising-binary">Recognising Binary</h2>
+<p>Decimal numbers can be described as <em>"a sequence of digits ranging from 0 to 9"</em>. In the very same fashion, we can describe binary numbers as <em>"a sequence of digits ranging from 0 to 1"</em>. The following examples are all binary numbers:</p>
+<ul>
+<li>11001100</li>
+<li>0001</li>
+<li>0</li>
+<li>1111</li>
+</ul>
+<h2 id="binary-system">Binary System</h2>
+<p>The binary numbering system is a cousin to the decimal numbering system. It is used to represent the same numbers, they just look different.</p>
+<p>We apply the same process to binary as we do with decimal but use only two digits (0 and 1) and each column is a multiple of 2 instead of 10. This means the pattern for our columns becomes <em>units, twos, fours, eights, sixteens</em> etc.</p>
+<p>Take some time to look over this table. Pay close attention to the column names and compare them to the decimal table above. Can you see a pattern?</p>
+<section class="table-scroll" tabindex="0" aria-label="Table 2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th class="align-center">Eight</th><th class="align-center">Four</th><th class="align-center">Two</th><th class="align-center">Unit</th><th class="align-center">Name</th><th class="align-center">Binary Number</th></tr></thead><tbody><tr><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">1</td><td class="align-center">One</td><td class="align-center"><code>0001</code></td></tr><tr><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">1</td><td class="align-center">0</td><td class="align-center">Two</td><td class="align-center"><code>0010</code></td></tr><tr><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">1</td><td class="align-center">1</td><td class="align-center">Three</td><td class="align-center"><code>0011</code></td></tr><tr><td class="align-center">0</td><td class="align-center">1</td><td class="align-center">0</td><td class="align-center">0</td><td class="align-center">Four</td><td class="align-center"><code>0100</code></td></tr><tr><td class="align-center">0</td><td class="align-center">1</td><td class="align-center">0</td><td class="align-center">1</td><td class="align-center">Five</td><td class="align-center"><code>0101</code></td></tr></tbody></table></section>
+<h2 id="converting-binary-to-decimal">Converting Binary to Decimal</h2>
+<p>In my experience, manually converting a few binary numbers into decimal helps to solidify the concept. Let's use the binary number <code>101101</code> as an example.</p>
+<p>First, draw the columns around the binary number (remember to use multiples of 2). I will use "one" for clarity instead of "unit".</p>
+<section class="table-scroll" tabindex="0" aria-label="Table 3">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Thirty-Two</th><th>Sixteen</th><th>Eight</th><th>Four</th><th>Two</th><th>One</th></tr></thead><tbody><tr><td>1</td><td>0</td><td>1</td><td>1</td><td>0</td><td>1</td></tr></tbody></table></section>
+<p>Next, convert each digit based on its position.</p>
+<section class="table-scroll" tabindex="0" aria-label="Table 4">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Thirty-Two</th><th>Sixteen</th><th>Eight</th><th>Four</th><th>Two</th><th>One</th></tr></thead><tbody><tr><td>32</td><td>0</td><td>8</td><td>4</td><td>0</td><td>1</td></tr></tbody></table></section>
+<p>Lastly, add them up:</p>
+<p><span class="katex"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>32</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>8</mn><mo>+</mo><mn>4</mn><mo>+</mo><mn>0</mn><mo>+</mo><mn>1</mn><mo>=</mo><mn>45</mn></mrow><annotation encoding="application/x-tex">32 + 0 + 8 + 4 + 0 + 1 = 45</annotation></semantics></math></span></p>
+<p>Which means <code>101101</code> equals 45. Much easier once you know how it works, right?</p></div></article><p class="share">Share on <a href="https://x.com/intent/tweet?text=Binary%20Made%20Easy%0A&amp;url=https%3A%2F%2Ftheselftaughtdev.io%2Fnotes%2Fintro-to-cs%2Fbinary-made-easy%2F" target="_blank" rel="noopener">X<span class="vh"> (opens in a new tab)</span></a>, <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Ftheselftaughtdev.io%2Fnotes%2Fintro-to-cs%2Fbinary-made-easy%2F" target="_blank" rel="noopener">LinkedIn<span class="vh"> (opens in a new tab)</span></a> or <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftheselftaughtdev.io%2Fnotes%2Fintro-to-cs%2Fbinary-made-easy%2F" target="_blank" rel="noopener">Facebook<span class="vh"> (opens in a new tab)</span></a></p><nav class="onward" aria-label="Next note"><a href="/notes/intro-to-cs/how-computers-speak-in-binary/" class="next"><span class="next-k">Next</span><span class="next-t">Discover How Computers Speak in Binary</span></a></nav></main><footer class="foot"><p>© <span data-year>2026</span> Tim MacKay</p><nav class="links" aria-label="More links"><a href="/about/">About</a><a href="https://github.com/theselftaughtdev42" target="_blank" rel="noopener">GitHub<span class="vh"> (opens in a new tab)</span></a><a href="https://www.linkedin.com/in/theselftaughtdev/" target="_blank" rel="noopener">LinkedIn<span class="vh"> (opens in a new tab)</span></a><a href="https://medium.com/@theselftaughtdev" target="_blank" rel="noopener">Medium<span class="vh"> (opens in a new tab)</span></a><a href="https://dev.to/theselftaughtdev" target="_blank" rel="noopener">Dev.to<span class="vh"> (opens in a new tab)</span></a><a href="/feed_rss_created.xml">RSS</a></nav></footer><script type="module" src="/_astro/Base.astro_astro_type_script_index_0_lang.CO69rMje.js"></script></body></html>

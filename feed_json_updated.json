@@ -1,0 +1,135 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "The Self-Taught Dev",
+  "description": "Studying computer science, building intersting things and sharing the journey",
+  "home_page_url": "https://theselftaughtdev.io/",
+  "feed_url": "https://theselftaughtdev.io/feed_json_updated.json",
+  "language": "en",
+  "authors": [
+    {
+      "name": "Tim MacKay"
+    }
+  ],
+  "items": [
+    {
+      "id": "https://theselftaughtdev.io/notes/intro-to-cs/how-computers-speak-in-binary/",
+      "url": "https://theselftaughtdev.io/notes/intro-to-cs/how-computers-speak-in-binary/",
+      "title": "Discover How Computers Speak in Binary",
+      "summary": "Unravel how computers transform binary code into data, and learn to decode your internet speed.",
+      "content_text": "Unravel how computers transform binary code into data, and learn to decode your internet speed.",
+      "image": "https://theselftaughtdev.io/og/notes/intro-to-cs/how-computers-speak-in-binary.png",
+      "date_published": "2025-01-21T00:00:00.000Z",
+      "date_modified": "2025-01-21T00:00:00.000Z",
+      "tags": [
+        "computer-science",
+        "cs"
+      ]
+    },
+    {
+      "id": "https://theselftaughtdev.io/notes/intro-to-cs/binary-made-easy/",
+      "url": "https://theselftaughtdev.io/notes/intro-to-cs/binary-made-easy/",
+      "title": "Binary Made Easy",
+      "summary": "Discover how binary numbers mirror the familiar decimal system and see how counting in twos can be surprisingly simple.",
+      "content_text": "Discover how binary numbers mirror the familiar decimal system and see how counting in twos can be surprisingly simple.",
+      "image": "https://theselftaughtdev.io/og/notes/intro-to-cs/binary-made-easy.png",
+      "date_published": "2025-01-13T00:00:00.000Z",
+      "date_modified": "2025-01-13T00:00:00.000Z",
+      "tags": [
+        "computer-science",
+        "cs"
+      ]
+    },
+    {
+      "id": "https://theselftaughtdev.io/notes/how-we-learn/spaced-repetition/",
+      "url": "https://theselftaughtdev.io/notes/how-we-learn/spaced-repetition/",
+      "title": "Spaced Repetition",
+      "summary": "Master the art of memory by using Spaced Repetition—a technique that turns fleeting knowledge into lasting understanding",
+      "content_text": "Master the art of memory by using Spaced Repetition—a technique that turns fleeting knowledge into lasting understanding",
+      "image": "https://theselftaughtdev.io/og/notes/how-we-learn/spaced-repetition.png",
+      "date_published": "2024-06-04T00:00:00.000Z",
+      "date_modified": "2024-09-17T00:00:00.000Z",
+      "tags": [
+        "education",
+        "study",
+        "memory"
+      ]
+    },
+    {
+      "id": "https://theselftaughtdev.io/notes/how-we-learn/how-to-remember-anything/",
+      "url": "https://theselftaughtdev.io/notes/how-we-learn/how-to-remember-anything/",
+      "title": "How To Remember Anything",
+      "summary": "Transform abstract facts into unforgettable memories using clever tricks",
+      "content_text": "Transform abstract facts into unforgettable memories using clever tricks",
+      "image": "https://theselftaughtdev.io/og/notes/how-we-learn/how-to-remember-anything.png",
+      "date_published": "2024-06-11T00:00:00.000Z",
+      "date_modified": "2024-06-11T00:00:00.000Z",
+      "tags": [
+        "education",
+        "study",
+        "memory"
+      ]
+    },
+    {
+      "id": "https://theselftaughtdev.io/notes/how-we-learn/chunk-it-up/",
+      "url": "https://theselftaughtdev.io/notes/how-we-learn/chunk-it-up/",
+      "title": "Chunk It Up!",
+      "summary": "The technique that turns complex concepts into manageable pieces",
+      "content_text": "The technique that turns complex concepts into manageable pieces",
+      "image": "https://theselftaughtdev.io/og/notes/how-we-learn/chunk-it-up.png",
+      "date_published": "2024-05-28T00:00:00.000Z",
+      "date_modified": "2024-05-28T00:00:00.000Z",
+      "tags": [
+        "education",
+        "study"
+      ]
+    },
+    {
+      "id": "https://theselftaughtdev.io/notes/how-we-learn/the-two-learning-modes/",
+      "url": "https://theselftaughtdev.io/notes/how-we-learn/the-two-learning-modes/",
+      "title": "The Two Learning Modes",
+      "summary": "Unlock faster, deeper learning by tapping into your brain's two powerful modes",
+      "content_text": "Unlock faster, deeper learning by tapping into your brain's two powerful modes",
+      "image": "https://theselftaughtdev.io/og/notes/how-we-learn/the-two-learning-modes.png",
+      "date_published": "2024-05-21T00:00:00.000Z",
+      "date_modified": "2024-05-21T00:00:00.000Z",
+      "tags": [
+        "education",
+        "study"
+      ]
+    },
+    {
+      "id": "https://theselftaughtdev.io/notes/to-uni-or-not-to-uni/",
+      "url": "https://theselftaughtdev.io/notes/to-uni-or-not-to-uni/",
+      "title": "To Uni, or Not to Uni, That Is My Question",
+      "summary": "Is a degree essential, or can a self-driven curriculum rival formal education?",
+      "content_text": "Is a degree essential, or can a self-driven curriculum rival formal education?",
+      "image": "https://theselftaughtdev.io/og/notes/to-uni-or-not-to-uni.png",
+      "date_published": "2024-03-19T00:00:00.000Z",
+      "date_modified": "2024-03-19T00:00:00.000Z",
+      "tags": [
+        "education",
+        "university",
+        "degree",
+        "study",
+        "personal-development"
+      ]
+    },
+    {
+      "id": "https://theselftaughtdev.io/notes/will-ai-inherit-my-software-dev-job/",
+      "url": "https://theselftaughtdev.io/notes/will-ai-inherit-my-software-dev-job/",
+      "title": "Will Artificial Intelligence Inherit My Software Dev Job?",
+      "summary": "Could AI evolve from an assistant to a full-fledged software developer, potentially replacing human coders?",
+      "content_text": "Could AI evolve from an assistant to a full-fledged software developer, potentially replacing human coders?",
+      "image": "https://theselftaughtdev.io/og/notes/will-ai-inherit-my-software-dev-job.png",
+      "date_published": "2024-02-08T00:00:00.000Z",
+      "date_modified": "2024-02-08T00:00:00.000Z",
+      "tags": [
+        "ai",
+        "disruption",
+        "innovation",
+        "future",
+        "career"
+      ]
+    }
+  ]
+}
