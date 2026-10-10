@@ -39,3 +39,7 @@ jobs:
       # Every internal link, #anchor, image and asset in the built site must resolve. External links aren't checked.
       - name: Check the links
         run: npm run check:links
+
+      # Every built page must be valid HTML, by html-validate's recommended rules (see .htmlvalidate.mjs).
+      - name: Check the HTML
+        run: npm run check:html

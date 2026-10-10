@@ -687,9 +687,17 @@ mark {
   font-weight: 700;
   border-bottom-color: var(--fg);
   white-space: nowrap;
-}
-.prose th:not([align]) {
   text-align: left;
+}
+/* A column aligned in the Markdown (rehype-tables turns its align attribute into one of these classes). */
+.prose .align-left {
+  text-align: left;
+}
+.prose .align-center {
+  text-align: center;
+}
+.prose .align-right {
+  text-align: right;
 }
 .prose .katex math {
   font-family: var(--mono);
