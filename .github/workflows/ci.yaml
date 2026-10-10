@@ -34,3 +34,7 @@ jobs:
       # Type-checks the code, checks every note's front matter, builds the site and its search index.
       - name: Build the site
         run: npm run build
+
+      # Every internal link, #anchor, image and asset in the built site must resolve. External links aren't checked.
+      - name: Check the links
+        run: npm run check:links
