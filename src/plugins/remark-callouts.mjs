@@ -6,7 +6,8 @@ import { visit } from 'unist-util-visit';
 //   Text of the callout.
 //   :::
 //
-// Each becomes <aside class="callout callout-tip"> with its title on the first line.
+// Each becomes <div class="callout callout-tip" role="note"> with its title on the first line. Not an <aside>:
+// that is a landmark, and a page with several callouts would have several landmarks with no name.
 const TITLES = {
   note: 'Note',
   info: 'Info',
@@ -27,7 +28,7 @@ export default function remarkCallouts() {
         const labelled = first && first.type === 'paragraph' && first.data && first.data.directiveLabel;
         const title = labelled ? first.children : [{ type: 'text', value: TITLES[node.name] }];
         const body = labelled ? node.children.slice(1) : node.children;
-        node.data = { hName: 'aside', hProperties: { className: ['callout', `callout-${node.name}`] } };
+        node.data = { hName: 'div', hProperties: { className: ['callout', `callout-${node.name}`], role: 'note' } };
         node.children = [
           { type: 'paragraph', data: { hProperties: { className: ['callout-title'] } }, children: title },
           ...body,

@@ -5,15 +5,15 @@ import { render } from './render.test-helper.mjs';
 const md = (markdown) => render(markdown, { remark: [remarkCallouts] });
 
 describe('remarkCallouts', () => {
-  it('turns a callout into an aside with its default title', async () => {
+  it('turns a callout into a note with its default title', async () => {
     expect(await md(':::tip\nRead slowly.\n:::')).toBe(
-      '<aside class="callout callout-tip"><p class="callout-title">Tip</p><p>Read slowly.</p></aside>',
+      '<div class="callout callout-tip" role="note"><p class="callout-title">Tip</p><p>Read slowly.</p></div>',
     );
   });
 
   it('uses the label as the title', async () => {
     expect(await md(':::warning[Mind the *gap*]\nCareful.\n:::')).toBe(
-      '<aside class="callout callout-warning"><p class="callout-title">Mind the <em>gap</em></p><p>Careful.</p></aside>',
+      '<div class="callout callout-warning" role="note"><p class="callout-title">Mind the <em>gap</em></p><p>Careful.</p></div>',
     );
   });
 
