@@ -31,7 +31,8 @@ jobs:
       - name: Run the unit tests
         run: npm test
 
-      # Type-checks the code, checks every note's front matter, builds the site and its search index.
+      # Type-checks the code, checks every note's front matter, builds the site and its search index,
+      # and checks the sitemap and feeds are well formed and only point at built pages, and the sitemap lists them all.
       - name: Build the site
         run: npm run build
 
