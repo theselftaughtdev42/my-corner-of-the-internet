@@ -10,11 +10,13 @@ import rehypeFigures from './src/plugins/rehype-figures.mjs';
 import rehypeTables from './src/plugins/rehype-tables.mjs';
 import rehypeAbbr from './src/plugins/rehype-abbr.mjs';
 import { redirects } from './src/redirects.mjs';
+import checkFeeds from './src/integrations/check-feeds.mjs';
 
 export default defineConfig({
   site: 'https://theselftaughtdev.io',
   trailingSlash: 'always',
   redirects,
+  integrations: [checkFeeds()],
   markdown: {
     processor: unified({
       // Quotes and dashes stay as written, as they were on the MkDocs site.
