@@ -14,7 +14,8 @@
     "lint:prose": "vale src/content/notes src/pages/pathway.md templates",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "prepare": "husky && vale sync"
+    "prepare": "husky && vale sync",
+    "check:links": "linkinator '**/*.html' --server-root dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
@@ -44,6 +45,7 @@
     "eslint-plugin-astro": "^1.7.0",
     "globals": "^17.13.0",
     "husky": "^9.1.7",
+    "linkinator": "^8.1.0",
     "lint-staged": "^16.4.0",
     "prettier": "^3.9.9",
     "prettier-plugin-astro": "^1.1.1",
